@@ -1,0 +1,113 @@
+{% load static %}
+
+<header>
+    <div class="tw-head">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand tw-nav-brand" href="{% url 'homepage' %}">
+                    <img src="{% static 'images/logo/logo.png' %}" alt="seobin">
+                </a>
+                <!-- End of Navbar Brand -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- End of Navbar toggler -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link" href="{% url 'aboutpage' %}">About</a>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link" href="{% url 'service' %}">Services</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                Pages
+                                <span class="tw-indicator"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu tw-dropdown-menu">
+                                <li><a href="about-us-1.html">About us 1</a></li>
+                                <li><a href="about-us-2.html">About us 2</a></li>
+                                <li><a href="team.html">Our Teams</a></li>
+                                <li><a href="testimonial.html">Testimonial</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- End Dropdown -->
+                         {% comment %} <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                Services
+                                <span class="tw-indicator"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu tw-dropdown-menu">
+                                <li><a href="service.html">Service All</a></li>
+                                <li><a href="single-service.html">Service Single</a></li>
+                            </ul> {% endcomment %}
+                            <!-- End of Dropdown menu -->
+                        </li>
+                        <!-- End Dropdown -->
+                        {% comment %} <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                Projects
+                                <span class="tw-indicator"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu tw-dropdown-menu">
+                                <li><a href="case-studies.html">Projects All</a></li>
+                                <li><a href="single-case.html">Project Single</a></li>
+                            </ul>
+                            <!-- End of Dropdown menu -->
+                        </li>
+                        <!-- End Dropdown -->
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                News
+                                <span class="tw-indicator"><i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu tw-dropdown-menu">
+                                <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
+                                <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
+                                <li><a href="news-single.html">News Single</a></li>
+                            </ul>
+                            <!-- End of Dropdown menu -->
+                        </li>  {% endcomment %}
+                        <!-- End Dropdown -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contactpage' %}">Contact</a></li>
+                        
+                    </ul>
+                    
+                    <!-- End Navbar Nav -->
+                </div>
+                <!-- End of navbar collapse -->
+                <a href="{% url 'login' %}"class="btn btn-primary ">login</a> 
+                &nbsp&nbsp&nbsp
+                <a href="{% url 'signup' %}"class="btn btn-primary ">SignUp</a>
+
+                {% comment %} <div class="tw-off-search d-none d-lg-inline-block"> {% endcomment %}
+                   
+                   {% comment %} <div class="tw-search">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contactpage' %}">Login/SignUp</a></li>
+                    </div> {% endcomment %}
+                    {% comment %} <div class="tw-menu-bar-default tw-menu-bar" id="open-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>  {% endcomment %}
+                </div>
+                {% comment %} <div class="col-md-12 text-center " data-wow-duration="1s" data-wow-delay="1.2s"><a href="{% url 'service' %}"
+                    class="btn btn-primary tw-mt-80">View All</a>
+              </div> {% endcomment %}
+                <!-- End off canvas menu -->
+            </nav>
+            <!-- End of Nav -->
+        </div>
+        <!-- End of Container -->
+    </div>
+    <!-- End tw head -->
+</header>

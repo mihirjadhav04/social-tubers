@@ -1,0 +1,208 @@
+$min768: 768px;
+@mixin mQ($arg...) {
+    @if length($arg)==1 {
+        @media screen and (max-width: nth($arg, 1)) {
+            @content;
+        }
+    }
+    @if length($arg)==2 {
+        @media screen and (min-width: nth($arg, 1)) and (max-width:nth($arg, 2)) {
+            @content;
+        }
+    }
+}
+
+@mixin newMq($arg) {
+    @if($arg)==min768 {
+        @media screen and (min-width: $min768) {
+            @content;
+        }
+    }
+}
+
+
+@mixin noanim-border {
+    position: relative;
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: #FA6742;
+    @content;
+    &:after {
+        position: absolute;
+        content: "";
+        width: 35px;
+        height: 3px;
+        left: 10px;
+        bottom: 0;
+        border-left: 5px solid #fff;
+        @content;
+    }
+}
+
+@mixin animStart {
+    @keyframes animborder {
+        0% {
+            transform: translateX(0px);
+        }
+        100% {
+            transform: translateX(113px);
+        }
+    }
+}
+
+@mixin pShort {
+    @keyframes primary-short {
+        0% {
+            width: 15%;
+        }
+        50% {
+            width: 90%;
+        }
+        100% {
+            width: 10%;
+        }
+    }
+}
+
+@mixin pLong {
+    @keyframes primary-long {
+        0% {
+            width: 80%;
+        }
+        50% {
+            width: 0%;
+        }
+        100% {
+            width: 80%;
+        }
+    }
+}
+
+@mixin borderAfter {
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 15%;
+        height: 3px;
+        background-color: #fa6742;
+        left: 0;
+        bottom: 0px;
+        opacity: 0;
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+        @content;
+    }
+}
+
+@mixin borderBefore {
+    &:before {
+        content: '';
+        display: block;
+        width: 80%;
+        height: 3px;
+        background-color: #fa6742;
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        opacity: 0;
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+        @content;
+    }
+}
+
+    /* Animated Title Border */
+
+    .animate-border {
+       position: relative;
+       display: block;
+       width: 115px;
+       height: 3px;
+       background: #FA6742;
+    }
+
+    .animate-border:after {
+       position: absolute;
+       content: "";
+       width: 35px;
+       height: 3px;
+       left: 0;
+       bottom: 0;
+       border-left: 10px solid #fff;
+       border-right: 10px solid #fff;
+       -webkit-animation: animborder 2s linear infinite;
+       animation: animborder 2s linear infinite;
+    }
+
+    @-webkit-keyframes animborder {
+       0% {
+          -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+       }
+       100% {
+          -webkit-transform: translateX(113px);
+          transform: translateX(113px);
+       }
+    }
+
+    @keyframes animborder {
+       0% {
+          -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+       }
+       100% {
+          -webkit-transform: translateX(113px);
+          transform: translateX(113px);
+       }
+    }
+
+    .animate-border.border-white:after {
+       border-color: #fff;
+    }
+
+    .animate-border.border-yellow:after {
+       border-color: #F5B02E;
+    }
+
+    .animate-border.border-orange:after {
+       border-right-color: #fa6742;
+       border-left-color: #fa6742;
+    }
+
+    .animate-border.border-ash:after {
+       border-right-color: #EEF0EF;
+       border-left-color: #EEF0EF;
+    }
+
+    .animate-border.border-offwhite:after {
+       border-right-color: #F7F9F8;
+       border-left-color: #F7F9F8;
+    }
+
+    /* Animated heading border */
+
+    @keyframes primary-short {
+       0% {
+          width: 15%;
+       }
+       50% {
+          width: 90%;
+       }
+       100% {
+          width: 10%;
+       }
+    }
+
+    @keyframes primary-long {
+       0% {
+          width: 80%;
+       }
+       50% {
+          width: 0%;
+       }
+       100% {
+          width: 80%;
+       }
+    }

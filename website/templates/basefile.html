@@ -1,0 +1,17 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+{% include "includes/head.html" %}
+
+<body>
+    {% comment %} {% include "includes/top_header.html" %} {% endcomment %}
+    {% include "includes/header.html" %}
+    {% block content %}
+
+    {% endblock %}
+    {% include "includes/footer.html" %}
+    {% include "includes/scripts.html" %}
+</body>
+
+</html>
