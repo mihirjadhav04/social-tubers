@@ -12,8 +12,10 @@ def aboutpage(request):
 def contactpage(request):
     return render(request, "webpages/contactpage.html")
 
+
 def service(request):
     return render(request, "webpages/service.html")
+
 
 def login(request):
     return render(request, "webpages/login.html")
@@ -22,7 +24,6 @@ def login(request):
 def signup(request):
     return render(request, "webpages/signup.html")
 
-def influencers(request):
-    return render(request, "webpages/influencers.html")
 
-
+# def influencers(request):
+#     return render(request, "webpages/influencers.html")

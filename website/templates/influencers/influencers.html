@@ -1,0 +1,159 @@
+{% extends "basefile.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'images/banner/banner5.jpg' %})">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="banner-heading">
+               <h1 class="banner-title">Influencers</h1>
+               <ol class="breadcrumb">
+                  <li>Home</li>
+                  <li>Influencers</li>
+               </ol>
+            </div>
+         </div>
+         <!-- Col end -->
+      </div>
+      <!-- Row end -->
+   </div>
+   <!-- Container end -->
+</div>
+<!-- Banner area end -->
+
+
+{% comment %} <section id="main-container" class="main-container">
+   <div class="container"> {% endcomment %}
+      {% comment %} <div class="col-lg-4 col-md-12">
+         <div class="sidebar sidebar-right">
+            <div class="widget widget-search">
+               <div id="search" class="input-group">
+                  <input class="form-control" placeholder="Search" type="search">
+                  <span>
+                     <i class="icon icon-search"></i>
+                  </span>
+               </div>
+               <!-- End Input Group -->
+            </div>
+            <!-- End Widget Search -->
+
+            <!-- Tags end -->
+         </div>
+         <!-- End Sidebar Right -->
+      </div> {% endcomment %}
+      <section id="main-container" class="main-container">
+         <div class="container">
+            <div class="row pt-5">
+               {% for tuber in all_tubers %}
+
+               <div class="col-md-4 text-center">
+                  <div class="tw-case-study-box">
+                     <div class="case-img study-bg-1">
+                        <img src="{{ tuber.profile_photo.url }}" alt="" class="img-fluid">
+                     </div>
+                     <!-- End case img -->
+                     <div class="casestudy-content">
+                        <a href="#">
+                           <h4>{{ tuber.influencer_name }}</h4>
+                        </a>
+                        <p>{{ tuber.category }}</p>
+                        <!-- <div class="team-info">
+
+                           <div class="team-social-links">
+
+                              <a href="#"><i class="fa fa-youtube-play"
+                                    style="font-size:44px;color:red; radius:50px"></i></i></a>
+                              <a href="#"><i class="fa fa-instagram" style="font-size:44px"></i></a>
+
+                           </div>
+                        </div><br> -->
+                        <a href="{% url 'influencer_details' tuber.id %}">
+                           <p style="font-size:18px;color:black">View Details
+                              <!-- influencer/services-->
+                              <i class="fa fa-angle-right"></i>
+                           </p>
+                        </a>
+                     </div>
+                     <!-- End case study content -->
+                  </div>
+                  <!-- End case study box -->
+               </div>
+               {% endfor %}
+
+            </div>
+            <!-- End Row -->
+         </div>
+
+
+
+
+
+
+
+   </div>
+   <!-- Main row end -->
+   </div>
+   <!-- Container end -->
+</section>
+<!-- Main container end -->
+
+
+
+
+
+
+
+
+
+<!-- 3rd article end end -->
+<div class="paging text-center">
+   <ul class="pagination justify-content-center">
+      <!-- #Previous Page Button -->
+      {% if all_tubers.has_previous %}
+      <li><a href="?page={{all_tubers.previous_page_number}}" aria-label="Previous"><i
+               class="icon icon-arrow-left"></i></a></li>
+      {% endif %}
+
+      <!-- #Current Active Page -->
+      <li><a href="#">{{all_tubers.number}}</a></li>
+
+      <!-- #Next Page Button -->
+      {% if all_tubers.has_next %}
+      <li><a href="?page={{all_tubers.next_page_number}}" aria-label="Next"><i class="icon icon-arrow-right"></i></a>
+      </li>
+      {% endif %}
+
+   </ul>
+   <!-- Pagination End -->
+</div>
+<!-- paging End -->
+</div>
+<!-- Content Col end -->
+
+
+
+
+
+
+
+</div>
+<!-- Main row end -->
+</div>
+<!-- Container end -->
+</section>
+<!-- Main container end -->
+
+
+
+
+
+
+<!-- Javascripts File
+      =============================================================================-->
+
+
+
+{% endblock %}

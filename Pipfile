@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+requests = "*"
+tqdm = "*"
+pandas = "*"
+matplotlib = "*"
 
 [dev-packages]
 
