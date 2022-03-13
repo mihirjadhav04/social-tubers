@@ -9,5 +9,6 @@ urlpatterns = [
     path("service/", views.service, name="service"),
     path("login/", views.login, name="login"),
     path("signup/", views.signup, name="signup"),
+    path("influencer_details/", views.influencer_details, name="influencer_details"),
     # path("influencers/", views.influencers, name="influencers"),
 ]
