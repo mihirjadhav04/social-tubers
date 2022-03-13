@@ -3,7 +3,7 @@ from . import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("homepage/", views.homepage, name="homepage"),
+    path("", views.homepage, name="homepage"),
     path("aboutpage/", views.aboutpage, name="aboutpage"),
     path("contactpage/", views.contactpage, name="contactpage"),
     path("service/", views.service, name="service"),
