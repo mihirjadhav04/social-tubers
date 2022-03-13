@@ -6,5 +6,5 @@ from .views import influencers, influencer_details
 
 urlpatterns = [
     path("influencers/", influencers, name="influencers"),
-    path("<int:id>", influencer_details, name="influencer_details"),
+    # path("<int:id>", influencer_details, name="influencer_details"),
 ]
