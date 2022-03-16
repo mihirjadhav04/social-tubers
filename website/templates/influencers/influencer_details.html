@@ -1,7 +1,239 @@
 {% extends "basefile.html" %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <h2>Details of the influencer will be shown here.</h2>
+
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'images/banner/banner5.jpg' %})">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="banner-heading">
+               <h1 class="banner-title">Influencers Detail</h1>
+               <ol class="breadcrumb">
+                  <li>Home</li>
+                  <li>Influencers Detail</li>
+               </ol>
+            </div>
+         </div>
+         <!-- Col end -->
+      </div>
+      <!-- Row end -->
+   </div>
+   <!-- Container end -->
 </div>
+<!-- Banner area end -->
+
+<section id="tw-final-result" class="tw-final-result">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8">
+            <div class="section-heading">
+               <h2>
+                  {{tuber.influencer_name}}
+                  <a href="#"><i class="fa fa-youtube-play" style="font-size:37px;color:red; radius:40px"></i></i></a>
+                  <a href="#"><i class="fa fa-instagram" style="font-size:35px;color:red; radius:40px"></i></i></a>
+                  <span class="animate-border tw-mt-20 tw-mb-35"></span>
+               </h2>
+            </div>
+            <div class="tw-results-content">
+               <p>Doloribus cum reiciendis labore ducimus necessitatibus esse porro quo veritatis harum,
+                  autem deserunt nemo necessitatibus in omnis beatae non, blanditiis possimus porro
+                  magni voluptates, fuga sed soluta optio veniam a cupiditate ducimus quod. Enim porro
+                  culpa ullam accusantium consequatur iste sint alias quasi, iste beatae nemo rem consequuntur,
+                  quam tempore dolorem ullam odit quae. Odio excepturi et veritatis sed voluptatibus
+                  ipsum voluptate nam blanditiis quidem.</p>
+
+            </div>
+         </div>
+         <!-- Col End -->
+         <div class="col-md-4">
+            <img style="height: 400px; width:auto;" src="{{ tuber.profile_photo.url }}" alt="">
+         </div>
+         <!-- Col End -->
+      </div>
+      <!-- 1st Row End -->
+      <div class="row">
+
+
+         <div class="col-md-3 text-center">
+            <div class="traffic-values">
+               <div class="traffic-icon-bg traffic-bg-1">
+
+                  <i class="fa fa-rocket" style="font-size:80px"></i>
+               </div>
+
+               <!-- Traffic bg end -->
+               <h3>Subscriber Count
+               </h3>
+               <p><span class="counter">{{ subCount }}</span></p>
+            </div>
+            <!-- Traffic Counter end -->
+         </div>
+         <!-- Col End -->
+         <div class="col-md-3 text-center">
+            <div class="traffic-values">
+               <div class="traffic-icon-bg traffic-bg-2">
+
+                  <i class="fa fa-eye" style="font-size:80px"></i>
+               </div>
+
+               <!-- Traffic bg end -->
+               <h3>View Count
+               </h3>
+               <!-- {{viewCount}} -->
+               <p><span class="traffic-values">{{ viewCount }}</span></p>
+            </div>
+            <!-- Traffic Counter end -->
+         </div>
+         <!-- Col End -->
+         <div class="col-md-3 text-center">
+            <div class="traffic-values">
+               <div class="traffic-icon-bg traffic-bg-3">
+
+                  <i class="fa fa-film" style="font-size:80px"></i>
+               </div>
+
+               <!-- Traffic bg end -->
+               <h3>Video Count
+               </h3>
+               <p><span class="counter">{{ videoCount }}</span></p>
+            </div>
+            <!-- Traffic Counter end -->
+         </div>
+         <!-- Col End -->
+         <div class="col-md-3 text-center">
+            <div class="traffic-values">
+               <div class="traffic-icon-bg traffic-bg-4">
+
+                  <i class="fa fa-thumbs-o-up" style="font-size:80px"></i>
+               </div>
+
+               <!-- Traffic bg end -->
+               <h3>Like Count
+               </h3>
+               <p><span class="counter">12990</span></p>
+            </div>
+            <!-- Traffic Counter end -->
+         </div>
+         <!-- Col End -->
+      </div>
+      <!-- 2nd Row End -->
+
+
+
+      <!-- Result End -->
+      <br><br>
+      <div style="text-align: center">
+         <div class="text text-center mb-5">
+            <span class="subheading">{{tuber.influencer_name}}</span>
+            <h2>TOP VIDEO</h2> <br>
+            <iframe width="700" height="450" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
+               allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowfullscreen></iframe>
+         </div>
+      </div>
+
+      <div style="text-align: center">
+         <span class="subheading">Influencer's</span>
+         <h2>TOP 10 VIDEOS</h2> <br>
+      </div>
+
+      <style>
+         table,
+         td {
+            border: 2px solid black;
+            color: #1b1b21;
+            background: rgb(248, 233, 233);
+         }
+
+         th {
+            border: 1px solid white;
+            color: #FA6742;
+
+               {
+               % comment %
+            }
+
+            color:white;
+
+               {
+               % endcomment %
+            }
+
+            background: #1b1b21
+         }
+      </style>
+
+      <table class="table table-hover" style="margin-left: auto; margin-right: auto; width:100%;">
+         <thead>
+            <tr>
+               <th scope="col">Video Title</th>
+               <th scope="col">Views</th>
+               <th scope="col">Likes</th>
+               <th scope="col">Comments</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for st in stats %}
+            {% if forloop.counter < 11 %} <tr>
+               <a href="https://youtu.be/{{st.0}}">
+                  <td>{{ st.1 }}</td>
+               </a>
+               <td>{{ st.2 }}</td>
+               <td>{{ st.3 }}</td>
+               <td>{{ st.4 }}</td>
+               </tr>
+               {% endif %}
+               {% endfor %}
+
+
+         </tbody>
+      </table>
+      <br><br>
+
+      <div style="text-align: center">
+         <span class="subheading">Influencer's</span>
+         <h2>Statistical Analysis</h2> <br>
+      </div>
+
+
+      <section id="tw-analysis" class="tw-analysis-area">
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-md-8 text-center wow fadeInDown">
+                  <h2 class="column-title">
+                     {% comment %} Influencer {% endcomment %}
+                     <span class="text-white">Influencer Pricing Calculator</span>
+                  </h2>
+                  <div class="analysis-form">
+                     <form class="form-vertical">
+                        <div class="row justify-content-center">
+                           <div class="col-lg-4 col-md-12 no-padding">
+                              <div class="form-group tw-form-round-shape">
+                                 <input type="url" id="url" name="url" placeholder="Youtube Channel Name"
+                                    class="form-control">
+                              </div>
+                           </div>
+                           <div class="col-lg-4 col-md-12 no-padding">
+                              <div class="form-group">
+                                 <input type="submit" value="Calculate">
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+   </div>
+   <!-- Container End -->
+</section>
+
+<!-- Scripts -->
+<script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js' %}"></script>
+<script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js' %}"></script>
+
+
 {% endblock %}

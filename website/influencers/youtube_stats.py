@@ -93,24 +93,24 @@ class YTstats:
         return channel_videos, nextPageToken
 
     # function to dump the data into json file with channel name as filename
-    def dump(self):
-        if self.channel_statistics is None or self.video_data is None:
-            print("DATA is NONE")
-            return
+    # def dump(self):
+    #     if self.channel_statistics is None or self.video_data is None:
+    #         print("DATA is NONE")
+    #         return
 
-        fused_data = {
-            self.channel_id: {
-                "channel_statistics": self.channel_statistics,
-                "video_data": self.video_data,
-            }
-        }
+    #     fused_data = {
+    #         self.channel_id: {
+    #             "channel_statistics": self.channel_statistics,
+    #             "video_data": self.video_data,
+    #         }
+    #     }
 
-        channel_title = self.video_data.popitem()[1].get(
-            "channelTitle", self.channel_id
-        )  # get channel name from data
-        channel_title = channel_title.replace(" ", "_").lower()
-        file_name = channel_title + ".json"
-        with open(file_name, "w") as f:
-            json.dump(fused_data, f, indent=4)
+    #     channel_title = self.video_data.popitem()[1].get(
+    #         "channelTitle", self.channel_id
+    #     )  # get channel name from data
+    #     channel_title = channel_title.replace(" ", "_").lower()
+    #     file_name = channel_title + ".json"
+    #     with open(file_name, "w") as f:
+    #         json.dump(fused_data, f, indent=4)
 
-        print("File Dumped")
+    #     print("File Dumped")

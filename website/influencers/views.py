@@ -16,13 +16,20 @@ from django.core.mail import send_mail
 from django.db.models import Avg
 from .models import ContactInfluencer
 
-API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
+# latest api key - gamil: jadhavmihir143
+# API_KEY = "AIzaSyAvqYKXBzQPwXNgFCcxVP-egG55DQNhs4w"
+
+# API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
+
+# API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
+
+API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
 
 def influencers(request):
     all_tubers = Youtuber.objects.order_by("-created_date")
 
-    paginator = Paginator(all_tubers, 1)
+    paginator = Paginator(all_tubers, 3)
     page = request.GET.get("page")
     try:
         tubers = paginator.page(page)
@@ -51,6 +58,7 @@ def influencer_details(request, id):
     videoCount = 0
     # creating object of YTstats as yt
     yt = YTstats(API_KEY, channel_id)
+    print(yt)
     channel_stats = yt.get_channel_statistics()
     print(channel_stats)
     for key, value in channel_stats.items():
@@ -67,7 +75,7 @@ def influencer_details(request, id):
     videoCount = convert_count(videoCount)
 
     video_stats = yt.get_channel_video_data()
-
+    # print(viewCount)
     # Video Statistics
     # Sort video data according to the view count
     sorted_videos = sorted(
@@ -94,7 +102,7 @@ def influencer_details(request, id):
 
     # print(stats[0][0])
     top_video = stats[0][0]
-    print(stats)
+    # print(stats)
     avg_views = 0
     avg_likes = 0
     # avg_dislikes = 0
@@ -107,36 +115,37 @@ def influencer_details(request, id):
     avg_views = avg_views / len(stats)
     # avg_dislikes = avg_dislikes / len(stats)
     avg_data = [round(avg_views), round(avg_likes)]
+    # yt.dump()
+    # print(len(stats))
+    # if request.method == "POST":
+    #     client_name = request.POST.get("name")
+    #     influencer_name = request.POST.get("influencer_name")
+    #     to_email = request.POST.get("influencer_email")
+    #     from_email = request.POST.get("email")
+    #     subject = request.POST.get("subject")
+    #     message = request.POST.get("message")
+    #     # print(client_name,client_email, to_email,message,from_email,subject)
 
-    print(len(stats))
-    if request.method == "POST":
-        client_name = request.POST.get("name")
-        influencer_name = request.POST.get("influencer_name")
-        to_email = request.POST.get("influencer_email")
-        from_email = request.POST.get("email")
-        subject = request.POST.get("subject")
-        message = request.POST.get("message")
-        # print(client_name,client_email, to_email,message,from_email,subject)
+    #     contacted_influencer = ContactInfluencer(
+    #         client_name=client_name,
+    #         client_email=from_email,
+    #         influencer_name=influencer_name,
+    #         influencer_email=to_email,
+    #         subject=subject,
+    #         message=message,
+    #     )
 
-        contacted_influencer = ContactInfluencer(
-            client_name=client_name,
-            client_email=from_email,
-            influencer_name=influencer_name,
-            influencer_email=to_email,
-            subject=subject,
-            message=message,
-        )
+    #     contacted_influencer.save()
 
-        contacted_influencer.save()
+    #     send_mail(
+    #         subject,
+    #         message + "\n\n\nFor Further Details,\nContact On: " + from_email,
+    #         from_email,
+    #         [to_email],
+    #     )
+    #     # contacted_influencer =
+    #     return redirect("home")
 
-        send_mail(
-            subject,
-            message + "\n\n\nFor Further Details,\nContact On: " + from_email,
-            from_email,
-            [to_email],
-        )
-        # contacted_influencer =
-        return redirect("home")
     data = {
         "tuber": tuber,
         "avg_data": avg_data,
@@ -189,3 +198,26 @@ def search(request):
         "search_tubers": search_tubers,
     }
     return render(request, "influencers/search.html", data)
+
+    # function to dump the data into json file with channel name as filename
+    def dump(self):
+        if self.channel_statistics is None or self.video_data is None:
+            print("DATA is NONE")
+            return
+
+        fused_data = {
+            self.channel_id: {
+                "channel_statistics": self.channel_statistics,
+                "video_data": self.video_data,
+            }
+        }
+
+        channel_title = self.video_data.popitem()[1].get(
+            "channelTitle", self.channel_id
+        )  # get channel name from data
+        channel_title = channel_title.replace(" ", "_").lower()
+        file_name = channel_title + ".json"
+        with open(file_name, "w") as f:
+            json.dump(fused_data, f, indent=4)
+
+        print("File Dumped")

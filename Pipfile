@@ -9,6 +9,7 @@ requests = "*"
 tqdm = "*"
 pandas = "*"
 matplotlib = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 

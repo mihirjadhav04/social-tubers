@@ -11,6 +11,7 @@ class Youtuber(models.Model):
     youtube_channel_id = models.CharField(
         max_length=255, default="Add You Channel Id here"
     )
+    influencer_short_description = models.TextField()
     profile_photo = models.ImageField(upload_to="media/ytubers/%Y/%m/")
     # short_intro = RichTextField()
     category = models.CharField(max_length=255)

@@ -24,8 +24,9 @@ def login(request):
 def signup(request):
     return render(request, "webpages/signup.html")
 
-def influencer_details(request):
-    return render(request, "webpages/influencer_details.html")
+
+# def influencer_details(request):
+#     return render(request, "webpages/influencer_details.html")
 
 # def influencers(request):
 #     return render(request, "webpages/influencers.html")
