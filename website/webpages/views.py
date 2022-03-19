@@ -24,11 +24,14 @@ def login(request):
 def signup(request):
     return render(request, "webpages/signup.html")
 
+
 def influencer_signup(request):
-    return render(request, "webpages/influencer_signup.html")
+    return render(request, "webpages/influencer-signup.html")
+
 
 def brand_signup(request):
     return render(request, "webpages/brand_signup.html")
+
 
 # def influencer_details(request):
 #     return render(request, "webpages/influencer_details.html")
