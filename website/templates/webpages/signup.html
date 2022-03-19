@@ -12,88 +12,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>login</title>
+    <title>SignUp</title>
+        <!-- FOR SIGNUP
+           Bootstrap core CSS  --> 
+        <link href="{% static 'css/login.css' %}" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+    
+    </head>
+    <body> 
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="{% url 'influencer_signup' %}"><br><br><br><br><br><br><br><br><br>
+               
+                <button>Sign Up As Influencer</button>
+            </form>
+            <form action="{% url 'brand_signup' %}"><br>
+               
+                <button>Sign Up As Brand</button>
+            </form>
+        </div>
 
-    <!-- FOR login
-       Bootstrap core CSS  --> 
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-   
+        {% comment %} </div> {% endcomment %}
+        <div class="overlay-container">
+            <div class="overlay">
+                {% comment %} <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div> {% endcomment %}
 
-
-
-</head>
-<body> 
-<div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#"><br/><br>
-            <h1>Create Account</h1>
-			 {% comment %} <div class="social-container">
-                <img src="{% static 'images/icon/google.png' %}" alt="">
-            </div> {% endcomment %}
-            {% comment %} <div class="social-container">
-                 {% endcomment %}
-                {% comment %} <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a> {% endcomment %}
-                {% comment %} <img src="{% static 'images/icon/google.png' %}" alt=""> {% endcomment %}
-                {% comment %} <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> {% endcomment %}
-            {% comment %} </div> {% endcomment %}
-            {% comment %} <span>or use your email for registration</span> {% endcomment %}
-            <br> <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" /><br>
-            <button>Sign Up</button><p>OR</p> 
-			
-            <button id="signIn">Sign Up as Brand </button>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
-        <form action="#"><br/><br /><br>
-            <h1>Create Account </h1>
-            {% comment %} <div class="social-container">
-                <img src="{% static 'images/icon/google.png' %}" alt="">
-            </div> {% endcomment %}
-            {% comment %} <span>or use your email for registration</span> {% endcomment %}
-            <br><input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" /><br>
-            {% comment %} <a href="#">Forgot your password?</a> {% endcomment %}
-            <button>Sign Up</button><p>OR</p>
-            <button id="signUp">Sign Up as Influencer</button>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-				
-					
-				
-                <h1>I am Influencer </h1><br>
-			
-				<img src="{% static 'images/icon/brands.png' %}" alt="" height = "80">
-                 <p>Looking for brands</p> 
-                {% comment %} <button class="ghost" id="signIn">Sign Up</button> {% endcomment %}
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>I am Brand</h1><br>
-				<img src="{% static 'images/pricing/pricing_icon5.png' %}" alt="">
-                <p>Looking for influencers</p>
-                {% comment %} <button class="ghost" id="signUp">Sign Up</button> {% endcomment %}
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Let's Connect</h1><br>
+                    <img src="{% static 'images/icon/service3.png' %}" alt="" width="100px" height="70px">
+                    {% comment %} <h1>I am Brand</h1>
+                    <p>Looking for Influencers</p>
+                    <button>Sign Up</button> {% endcomment %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Scripts -->
- <script src="{% static 'js/login.js' %}"></script>
     
-</body>
-</html> 
- <!--footer>
-    <p>
-        Created with <i class="fa fa-heart"></i> by
-        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-        - Read how I created this and how you can join the challenge
-        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-    </p>
-</footer--> 
+    <!-- Scripts -->
+     {% comment %} <script src="{% static 'js/login.js' %}"></script> {% endcomment %}
+        
+    </body>
+    </html> 
+     <!--footer>
+        <p>
+            Created with <i class="fa fa-heart"></i> by
+            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+            - Read how I created this and how you can join the challenge
+            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+        </p>
+    </footer--> 
+    
+    {% comment %} {% endblock %} {% endcomment %}
 
  {% endblock %} 
