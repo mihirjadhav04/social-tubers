@@ -20,9 +20,9 @@
                      <div class="slider-content">
                         <h1>What is <span>Influencer Mediator</span></h1>
                         <p>Influencer Mediator is an online platform that enables brands to
-                            analyse and visualise the performance of different digital media 
-                            content creators to produce perfect and apt collaborations.</p>
-                        
+                           analyse and visualise the performance of different digital media
+                           content creators to produce perfect and apt collaborations.</p>
+
                      </div>
                      <!-- End Slider Content -->
                   </div>
@@ -51,14 +51,14 @@
                <div class="row justify-content-center">
                   <div class="col-md-6">
                      <div class="slider-content">
-                        <h1>Creating 
-                           <span>Collaborations</span> 
+                        <h1>Creating
+                           <span>Collaborations</span>
                         </h1>
-                        <p>Robust and dynamic, our content creator marketplace is designed 
-                           to connect influencers from different channels and media with 
-                           various brands in order to deliver brand messages and drive conversions. 
-                           </p>
-                        
+                        <p>Robust and dynamic, our content creator marketplace is designed
+                           to connect influencers from different channels and media with
+                           various brands in order to deliver brand messages and drive conversions.
+                        </p>
+
                      </div>
                   </div>
                   <!-- Col end -->
@@ -98,10 +98,10 @@
                         <h1>
                            <span>Data Analytics</span><br /> at one click
                         </h1>
-                        <p>Start working with a company that helps brands meet 
+                        <p>Start working with a company that helps brands meet
                            their perfect influencer only after verifying all
-                            the content data analysis at our platform.</p>
-                        
+                           the content data analysis at our platform.</p>
+
                      </div>
                      <!-- End Slider Content -->
                   </div>
@@ -128,76 +128,67 @@
          </div>
          <!-- Col End -->
          <div class="col-md-7 ml-md-auto wow fadeInRight" data-wow-duration="1s">
-            <p class="features-text">At Influencer Mediator, we believe that socially 
-               distributed visual content is the future of advertising. 
+            <p class="features-text">At Influencer Mediator, we believe that socially
+               distributed visual content is the future of advertising.
                This platform allows brands to analyse and measure their
-                marketing effort and engage influencer to create content.
+               marketing effort and engage influencer to create content.
             </p>
          </div>
          <!-- Col End -->
       </div>
       <!-- End Row 1 -->
-      <div class="row">
-         <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/user1.png' %}" alt="">
-                  </div>
-                  <!-- End Features icon inner -->
-               </div>
-               <!-- End Features Icon -->
-               <h3>Create Profile</h3>
-               <p>Join us as an influencer. 
-                  Include your channels, niche, target audience, interests, etc.
-               </p> 
-               <a href="#" class="tw-readmore">Read More <!-- login/signup-->
-                  <i class="fa fa-angle-right"></i>
-               </a>
-            </div>
-            <!-- End Single Features -->
+      <div class="row text-center">
+         <div class="col section-heading wow fadeInDown" data-wow-duration="1s">
+            <h2>
+               <small>Top Influencers</small>Our Featured <span>Influencers</span>
+            </h2>
+            <span class="animate-border ml-auto mr-auto tw-mt-20"></span>
          </div>
-         <!-- Col End -->
-         <div class="col-lg-4 col-md-12  wow fadeInUp" data-wow-duration="1.6s" data-wow-delay=".4s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/brands1.png' %}" alt="">
+         <!-- End Col -->
+      </div>
+      <div class="row " style="margin-top: -50px">
+         <div class="container">
+
+            <div class="row pt-5">
+               {% for ftubers in featured_youtubers %}
+
+               <div class="col-md-4 text-center">
+                  <div class="tw-case-study-box" style="width: 300px;height: auto;">
+                     <div class="case-img study-bg-1">
+                        <img src="{{ ftubers.profile_photo.url }}" alt="" class="img-fluid">
+                     </div>
+                     <!-- End case img -->
+                     <div class="casestudy-content">
+                        <a href="#">
+                           <h4>{{ ftubers.influencer_name }}</h4>
+                        </a>
+                        <p>{{ ftubers.category }}</p>
+                        <!-- <div class="team-info">
+
+                           <div class="team-social-links">
+
+                              <a href="#"><i class="fa fa-youtube-play"
+                                    style="font-size:44px;color:red; radius:50px"></i></i></a>
+                              <a href="#"><i class="fa fa-instagram" style="font-size:44px"></i></a>
+
+                           </div>
+                        </div><br> -->
+                        <a href="{% url 'influencer_details' ftubers.id %}">
+                           <p style="font-size:18px;color:black">View Details
+                              <!-- influencer/services-->
+                              <i class="fa fa-angle-right"></i>
+                           </p>
+                        </a>
+                     </div>
+                     <!-- End case study content -->
                   </div>
-                  <!-- End Features Icon inner -->
+                  <!-- End case study box -->
                </div>
-               <!-- End Features Icon -->
-               <h3>Brands come to you</h3>
-               <p>Brands can reach out to your
-                   profile as per their requirements after verifying and analyzing your content.
-               </p>
-               <a href="#" class="tw-readmore">Read More <!-- brands display-->
-                  <i class="fa fa-angle-right"></i>
-               </a>
+               {% endfor %}
+
             </div>
-            <!-- End Single Features -->
+            <!-- End Row -->
          </div>
-         <!-- end col -->
-         <div class="col-lg-4 col-md-12  wow fadeInUp" data-wow-duration="1.9s" data-wow-delay=".6s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/handshake1.png' %}" alt="">
-                  </div>
-                  <!-- End Features Icon inner -->
-               </div>
-               <!-- End Features Icon -->
-               <h3>Collaborate</h3>
-               <p>Use Influencer Mediator to keep track of invitations, 
-                  relationships and more in one single platform.
-               </p>
-               <a href="#" class="tw-readmore">Read More <!-- influencer/services-->
-                  <i class="fa fa-angle-right"></i>
-               </a>
-            </div>
-            <!-- End Single Features -->
-         </div>
-         <!-- End col -->
       </div>
       <!-- End Row 2 -->
    </div>
@@ -212,14 +203,14 @@
       <img class="wow fadeInUp" src="{% static 'images/check-seo/cloud2.png' %}" alt="">
       <img class="wow fadeInUp" src="{% static 'images/check-seo/announce.png' %}" alt="">
       <img class="wow fadeInUp" src="{% static 'images/check-seo/chart.png' %}" alt="">
-      
+
    </div>
    <!-- End Analysis Pattern img -->
    <div class="container">
       <div class="row justify-content-center">
          <div class="col-md-8 text-center wow fadeInDown">
             <h2 class="text-white">
-              A Place Where<br />
+               A Place Where<br />
                <span class="text-black">Influencers and Brands meet</span>
             </h2>
             <div class="analysis-form">
@@ -227,11 +218,11 @@
                   <div class="row justify-content-center">
                      <div class="col-lg-4 col-md-12 no-padding">
                         <div class="form-group">
-                           
-                            <input type="submit"value="I am a Brand"></a>
+
+                           <input type="submit" value="I am a Brand"></a>
                         </div>
                      </div>
-                     
+
                      <div class="col-lg-4 col-md-12 no-padding">
                         <div class="form-group">
                            <input type="submit" value="I am an Influencer">
@@ -269,11 +260,11 @@
             <span class="animate-border tw-mb-40"></span>
             <p>
                Join our community as a brand to get the most trusted and content verified influencers
-                after confirming on their content analytics, audience retention, target audience, etc.
+               after confirming on their content analytics, audience retention, target audience, etc.
             </p>
             <p>
                Join us as an influencer to monetize your content to
-                get the best collaborations from the top brands and increase your reach even further.
+               get the best collaborations from the top brands and increase your reach even further.
             </p>
             <!-- End Intro list -->
             {% comment %} <a href="#" class="btn btn-primary">learn more</a>
@@ -358,8 +349,8 @@
             <!-- End Work Process -->
          </div>
          <!-- End Col -->
-         <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1.2s"><a href="{% url 'login' %}"
-               class="btn btn-primary tw-mt-80">Get Started</a>
+         <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1.2s"><a
+               href="{% url 'login' %}" class="btn btn-primary tw-mt-80">Get Started</a>
          </div>
       </div>
       <!-- End Row -->
@@ -374,7 +365,7 @@
          <div class="col-md-3 text-center">
             <div class="tw-facts-box">
                {% comment %} <div class="facts-img wow zoomIn" data-wow-duration="1s">
-                  <img src="{% static 'images/icon/fact1.png' %}" alt="" class="img-fluid" >
+                  <img src="{% static 'images/icon/fact1.png' %}" alt="" class="img-fluid">
                </div> {% endcomment %}
                <!-- End Fatcs image -->
                {% comment %} <div class="facts-content wow fadeInUp" data-wow-duration="1s">
@@ -403,7 +394,7 @@
             <!-- End Facts Box -->
          </div>
          <!-- Col End -->
-          <div class="col-md-3 text-center">
+         <div class="col-md-3 text-center">
             <div class="tw-facts-box">
                <div class="facts-img wow zoomIn">
                   <img src="{% static 'images/icon/fact2.png' %}" alt="" class="img-fluid">
@@ -431,7 +422,7 @@
                   <sup>+</sup>
                </div>
                <!-- End Facts Content -->
-            </div> 
+            </div>
             <!-- End Facts Box -->
          </div>{% endcomment %}
          <!-- Col End -->
@@ -439,7 +430,8 @@
       <!-- Row End -->
    </div>
    <!-- Container End -->
-{% comment %} </section>  {% endcomment %}
+   {% comment %}
+</section> {% endcomment %}
 <!-- Facts End -->
 
 
@@ -468,9 +460,9 @@
                <!-- Service icon end -->
                <div class="service-content">
                   <h3>Content Optimization</h3>
-                  <p>Get the list of top influencers having maximum reach within 
+                  <p>Get the list of top influencers having maximum reach within
                      the past time with their content.Content is presented in a simple and user-friendly manner</p>
-                  
+
                </div>
                <!-- Service Content end -->
             </div>
@@ -488,18 +480,18 @@
                <div class="service-content">
                   <h3>Creator Analytics</h3>
                   <p>The detailed content analysis of the influencer showing the audience retention,
-                      target audience, their niche, and the specified content category.</p>
-                  
+                     target audience, their niche, and the specified content category.</p>
+
                </div>
-               <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1.2s"><a href="{% url 'service' %}"
-                  class="btn btn-primary tw-mt-80">View All</a>
-            </div> 
+               <div class="col-md-12 text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="1.2s"><a
+                     href="{% url 'service' %}" class="btn btn-primary tw-mt-80">View All</a>
+               </div>
                <!-- Service content end -->
             </div>
             <!-- Service box End -->
          </div>
          <!-- Col End -->
-          <div class="col-md-4 text-center">
+         <div class="col-md-4 text-center">
             <div class="tw-service-box wow zoomIn" data-wow-duration="1s" data-wow-delay=".6s">
                <div class="service-icon service-icon-bg-3 d-table">
                   <div class="service-icon-inner d-table-cell">
@@ -510,9 +502,9 @@
                <div class="service-content">
                   <h3>Data Analysis</h3>
                   <p> Displaying the stats of the recent most videos
-                      with their analysis such as its reach, number of views, likes, comments, shares, saves, etc.</p>
-                  
-                  
+                     with their analysis such as its reach, number of views, likes, comments, shares, saves, etc.</p>
+
+
                </div>
                <!-- Service content end -->
             </div>
@@ -521,7 +513,7 @@
          <!-- Col end -->
       </div>
       <!-- Row end -->
-     {% comment %} <div class="tw-mb-60"></div> {% endcomment %}
+      {% comment %} <div class="tw-mb-60"></div> {% endcomment %}
       {% comment %} <div class="row">
          <div class="col-md-4 text-center">
             <div class="tw-service-box wow zoomIn" data-wow-duration="1s" data-wow-delay=".2s">
@@ -534,7 +526,7 @@
                <div class="service-content">
                   <h3>Creators Channel</h3>
                   <p> Just one tap away from personally viewing and visualizing the inflluencer's content.</p>
-                  
+
                </div>
                <!-- Service content end -->
             </div>
@@ -552,15 +544,15 @@
                <div class="service-content">
                   <h3>Personalized Recommendations</h3>
                   <p>Contact us if you want a specified niche or category based brand or influencer.</p>
-                 
-               </div> 
-               
+
+               </div>
+
                <!-- Service content end -->
             </div>
             <!-- Service box end -->
          </div>
          <!-- Row End -->
-          <div class="col-md-4 text-center">
+         <div class="col-md-4 text-center">
             <div class="tw-service-box wow zoomIn" data-wow-duration="1s" data-wow-delay=".6s">
                <div class="service-icon service-icon-bg-6 d-table">
                   <div class="service-icon-inner d-table-cell">
@@ -570,8 +562,9 @@
                <!-- Service Icon end-->
                <div class="service-content">
                   <h3>Successful Collaborations</h3>
-                  <p>Get the count of verified successful collaborations to gain the trust of brands as well as influencers.</p>
-                  
+                  <p>Get the count of verified successful collaborations to gain the trust of brands as well as
+                     influencers.</p>
+
                </div>
                <!-- Service Content end -->
             </div>
@@ -579,14 +572,14 @@
          </div>
          <!-- Col end -->
       </div>
-      <!-- Row End -->   {% endcomment %}
-   </div> 
+      <!-- Row End --> {% endcomment %}
+   </div>
    <!-- container -->
 </section>
 <!-- Tw Service End -->
 
 
-{% comment %}  <section id="tw-case" class="tw-case">
+{% comment %} <section id="tw-case" class="tw-case">
    <div class="container">
       <div class="row">
          <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
@@ -600,9 +593,10 @@
                <!-- End Features Icon -->
                {% comment %} <h3>We are transparent</h3>
                <p>Transparent and open communication in combination with our data-driven
-                   software provides full analytical and operational campaign support brands are looking for
-               </p>  {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- login/signup-->
+                  software provides full analytical and operational campaign support brands are looking for
+               </p> {% endcomment %}
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- login/signup-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -620,9 +614,10 @@
                <!-- End Features Icon -->
                {% comment %} <h3>We are innovative</h3>
                <p>We exist to challenge the status quo
-                   - we think different, act fast and are always open to new ideas and feedback.
+                  - we think different, act fast and are always open to new ideas and feedback.
                </p> {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- influencer/services-->
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- influencer/services-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -639,10 +634,11 @@
                </div>
                <!-- End Features Icon -->
                {% comment %} <h3>We always want to be better</h3>
-               <p>We hold ourselves to the highest standards, 
+               <p>We hold ourselves to the highest standards,
                   expecting 100% from our teams and creating unforgettable, unique experiences for our customers.
                </p> {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- influencer/services-->
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- influencer/services-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -663,8 +659,9 @@
                <!-- End Features Icon -->
                {% comment %} <h3>We are responsible</h3>
                <p>We always stay reliable and take responsibility.
-               </p>  {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- login/signup-->
+               </p> {% endcomment %}
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- login/signup-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -683,7 +680,8 @@
                {% comment %} <h3>We stick together</h3>
                <p>We build relationships and value long-term cooperation through openness and team spirit.
                </p> {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- influencer/services-->
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- influencer/services-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -701,9 +699,10 @@
                <!-- End Features Icon -->
                {% comment %} <h3>We are human</h3>
                <p>We treat people the same way we want to be treated -
-                   respectfully, conscientiously, and trustingly.
+                  respectfully, conscientiously, and trustingly.
                </p> {% endcomment %}
-               {% comment %} <a href="#" class="tw-readmore">Read More <!-- influencer/services-->
+               {% comment %} <a href="#" class="tw-readmore">Read More
+                  <!-- influencer/services-->
                   <i class="fa fa-angle-right"></i>
                </a> {% endcomment %}
             </div>
@@ -711,13 +710,14 @@
          </div>
          <!-- End col -->
       </div>
-      
-      
-      </div>
-      <!-- End Row -->
+
+
+   </div>
+   <!-- End Row -->
    </div>
    <!-- Container End -->
-{% comment %} </section> {% endcomment %}
+   {% comment %}
+</section> {% endcomment %}
 <!-- TW case end -->
 
 
@@ -738,11 +738,11 @@
                   </div>
                   <!-- End Testimonial bg -->
                   <div class="testimonial-text">
-                     <p>As a model / influencer I've been working with StarNgage 
+                     <p>As a model / influencer I've been working with StarNgage
                         for many years now. Their platform for influencer partnerships
-                         is the best designed engine that I've seen so far, I really 
-                         appreciate the level of equality & fairness which 
-                         it mirrors to favor both influencer and brand.</p>
+                        is the best designed engine that I've seen so far, I really
+                        appreciate the level of equality & fairness which
+                        it mirrors to favor both influencer and brand.</p>
                      <div class="testimonial-meta">
                         <h4>
                            Jason Stattham
@@ -763,9 +763,9 @@
                   </div>
                   <!-- End Testimonial bg -->
                   <div class="testimonial-text">
-                     <p>Very simply smooth operations, great customer 
-                        service which is always professional & timely in their 
-                        responses. Have worked with some great brands, and I'm 
+                     <p>Very simply smooth operations, great customer
+                        service which is always professional & timely in their
+                        responses. Have worked with some great brands, and I'm
                         looking forward to our future collaborations!</p>
                      <div class="testimonial-meta">
                         <h4>
@@ -1083,15 +1083,18 @@
                         </span>
                      </div>
                      <!-- End Post Meta -->
-                     <h3 class="post-title"><a href="https://www.bigcommerce.com/blog/influencer-marketing/#what-is-influencer-marketing">What is Influencer Marketing?</a></h3>
+                     <h3 class="post-title"><a
+                           href="https://www.bigcommerce.com/blog/influencer-marketing/#what-is-influencer-marketing">What
+                           is Influencer Marketing?</a></h3>
                      <div class="entry-content">
                         <p>
-                           Influencer marketing is a way brands can promote 
-                           their products through endorsements or recommendations 
-                           from influencers and content creators on the internet. 
-                           
+                           Influencer marketing is a way brands can promote
+                           their products through endorsements or recommendations
+                           from influencers and content creators on the internet.
+
                         </p>
-                        <a href="https://www.bigcommerce.com/blog/influencer-marketing/#what-is-influencer-marketing" class="tw-readmore">Read More 
+                        <a href="https://www.bigcommerce.com/blog/influencer-marketing/#what-is-influencer-marketing"
+                           class="tw-readmore">Read More
                            <i class="fa fa-angle-right"></i>
                         </a>
                      </div>
@@ -1125,15 +1128,18 @@
                         </span>
                      </div>
                      <!-- End Post Meta -->
-                     <h3 class="post-title"><a href=" https://shanebarker.com/blog/effective-types-influencer-collaborations/">Effective ways to get the best Influencer Collaborations</a></h3>
+                     <h3 class="post-title"><a
+                           href=" https://shanebarker.com/blog/effective-types-influencer-collaborations/">Effective
+                           ways to get the best Influencer Collaborations</a></h3>
                      <div class="entry-content">
                         <p>
                            To succeed with influencer marketing, the first step is
-                            to find the right influencers.It’s a good idea to 
-                            collaborate with an influencer who believes in the same 
-                            values as your brand. 
+                           to find the right influencers.It’s a good idea to
+                           collaborate with an influencer who believes in the same
+                           values as your brand.
                         </p>
-                        <a href=" https://shanebarker.com/blog/effective-types-influencer-collaborations/" class="tw-readmore">Read More 
+                        <a href=" https://shanebarker.com/blog/effective-types-influencer-collaborations/"
+                           class="tw-readmore">Read More
                            <i class="fa fa-angle-right"></i>
                         </a>
                      </div>
@@ -1167,15 +1173,16 @@
                         </span>
                      </div>
                      <!-- End Post Meta -->
-                     <h3 class="post-title"><a href="https://later.com/blog/work-with-brands/">Find our best deals with trusted Brands</a></h3>
+                     <h3 class="post-title"><a href="https://later.com/blog/work-with-brands/">Find our best deals with
+                           trusted Brands</a></h3>
                      <div class="entry-content">
                         <p>
-                           It’s generally a good idea to contact brands who are already 
-                           working with influencers, as they are more likely to have an 
+                           It’s generally a good idea to contact brands who are already
+                           working with influencers, as they are more likely to have an
                            allocated budget and a streamlined process in place for managing
                            campaigns.
                         </p>
-                        <a href=" https://later.com/blog/work-with-brands/" class="tw-readmore">Read More 
+                        <a href=" https://later.com/blog/work-with-brands/" class="tw-readmore">Read More
                            <i class="fa fa-angle-right"></i>
                         </a>
                      </div>
