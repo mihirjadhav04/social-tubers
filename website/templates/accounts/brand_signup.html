@@ -1,21 +1,114 @@
-<!DOCTYPE html>
+{% load static%}
+{% block content %}
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>login</title>
+
+    <!-- FOR login
+       Bootstrap core CSS  -->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+
+
+
+
 </head>
 
 <body>
-    <div class="container">
-        <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" name="submit" value="SignUp">
-        </form>
+    <div class="container-fluid" id="container">
+        <div class="form-container sign-in-container p-5">
+            <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1>Create Account </h1>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.first_name}}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.last_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.brand_name}}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.established_date}}
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.email}}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.instagram_id}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.category_type}}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.short_description}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.profile_photo}}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.password1}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.password2}}
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success" type="submit">Register! </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>I am Brand</h1><br>
+                    <img src="{% static 'images/pricing/pricing_icon5.png' %}" alt="" height="80">
+                    <p>Looking for Influencer</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/login.js' %}"></script>
+
 </body>
 
 </html>
+<!--footer>
+    <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+    </p>
+</footer-->
+
+{% endblock %}

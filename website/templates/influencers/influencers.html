@@ -57,20 +57,11 @@
                      <!-- End case img -->
                      <div class="casestudy-content">
                         <a href="#">
-                           <h4>{{ tuber.influencer_name }}</h4>
+                           <h4>{{ tuber.channel_name }}</h4>
                         </a>
-                        <p>{{ tuber.category }}</p>
-                        <!-- <div class="team-info">
+                        <p>{{ tuber.category_type }}</p>
 
-                           <div class="team-social-links">
-
-                              <a href="#"><i class="fa fa-youtube-play"
-                                    style="font-size:44px;color:red; radius:50px"></i></i></a>
-                              <a href="#"><i class="fa fa-instagram" style="font-size:44px"></i></a>
-
-                           </div>
-                        </div><br> -->
-                        <a href="{% url 'influencer_details' tuber.id %}">
+                        <a href="{% url 'influencer_details' tuber.user_id %}">
                            <p style="font-size:18px;color:black">View Details
                               <!-- influencer/services-->
                               <i class="fa fa-angle-right"></i>

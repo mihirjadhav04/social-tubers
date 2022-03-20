@@ -10,6 +10,7 @@ tqdm = "*"
 pandas = "*"
 matplotlib = "*"
 django-jazzmin = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

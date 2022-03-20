@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import math
 
 # Create your views here.
-from .models import Youtuber
+from accounts.models import Influencer
 
 # for pagiantion
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -27,7 +27,7 @@ API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
 
 def influencers(request):
-    all_tubers = Youtuber.objects.order_by("-created_date")
+    all_tubers = Influencer.objects.all()
 
     paginator = Paginator(all_tubers, 3)
     page = request.GET.get("page")
@@ -45,14 +45,14 @@ def influencers(request):
 
 
 def influencer_details(request, id):
-    tuber = get_object_or_404(Youtuber, pk=id)
+    tuber = get_object_or_404(Influencer, pk=id)
     # This tuber is not all the tubers information, instead it is the information of the tubers with the id that has been passed.
 
     # print(tuber.channel_id)
     # Passing Manually : channel_id = "UCSegc_0vxRuyJDw_vKGVPmA"
 
     # Passing the channel id which we are getting it from the current youtubers id selected for details page.
-    channel_id = tuber.youtube_channel_id
+    channel_id = tuber.youtube_id
     subCount = 0
     viewCount = 0
     videoCount = 0
