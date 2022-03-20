@@ -128,3 +128,6 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Welcome to the SocialTubers",
     "copyright": "SocialTubers Pvt Ltd",
 }
+
+
+AUTH_USER_MODEL = "accounts.User"
