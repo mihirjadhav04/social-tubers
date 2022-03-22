@@ -1,5 +1,4 @@
 {% load static%}
-{% block content %}
 
 <html lang="en">
 
@@ -13,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <title>login</title>
+    <title>Brand Registration Page</title>
 
     <!-- FOR login
        Bootstrap core CSS  -->
@@ -91,6 +90,17 @@
                     <h1>I am Brand</h1><br>
                     <img src="{% static 'images/pricing/pricing_icon5.png' %}" alt="" height="80">
                     <p>Looking for Influencer</p>
+                    <div class="row" style="margin-top:10%;margin-bottom:5%">
+                        <a href="{% url 'homepage' %}"
+                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
+                            to Home</a>
+                    </div>
+                    or
+                    <div class="row" style="margin-top:5%">
+                        <a href="{% url 'options' %}"
+                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
+                            Back</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,13 +112,3 @@
 </body>
 
 </html>
-<!--footer>
-    <p>
-        Created with <i class="fa fa-heart"></i> by
-        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-        - Read how I created this and how you can join the challenge
-        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-    </p>
-</footer-->
-
-{% endblock %}

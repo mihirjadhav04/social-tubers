@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.views.generic import CreateView
 
 # Create your views here.
@@ -22,6 +22,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.mail import send_mail
 from django.db.models import Avg
 
+from django.contrib.auth.models import User
+from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
+
 # from .models import ContactInfluencer
 
 # latest api key - gamil: jadhavmihir143
@@ -32,6 +36,34 @@ from django.db.models import Avg
 # API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
 
 API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
+
+
+def CommonLoginView(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        # this will authenticate the user by checking it into the DB.
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            # make the user to be login
+            auth.login(request, user)
+            messages.warning(request, "You are logged In")
+            return redirect("homepage")
+
+        else:
+            messages.warning(request, "Invalid Credentials")
+    return render(request, "accounts/common_signin.html")
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("homepage")
+
+
+def Options(request):
+    return render(request, "accounts/options.html")
 
 
 class InfluencerSignUpView(CreateView):
@@ -46,7 +78,7 @@ class InfluencerSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         # login(self.request, user)
-        return redirect("aboutpage")
+        return redirect("login_page")
 
 
 class BrandSignUpView(CreateView):
@@ -61,7 +93,7 @@ class BrandSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         # login(self.request, user)
-        return redirect("aboutpage")
+        return redirect("login_page")
 
 
 class CommonSignInView(CreateView):

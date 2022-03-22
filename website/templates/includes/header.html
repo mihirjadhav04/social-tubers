@@ -38,9 +38,22 @@
                     <!-- End Navbar Nav -->
                 </div>
                 <!-- End of navbar collapse -->
-                <a href="{% url 'login' %}" class="btn btn-primary">SignUp / SignIn</a>
                 <!-- &nbsp&nbsp&nbsp -->
-                <!-- <a href="{% url 'signup' %}" class="btn btn-primary ">SignUp</a> -->
+                {% if user.is_authenticated %}
+                <p
+                    style="color:#000;font-size:1.3em;border:1px solid #000;padding:10px 20px;margin-right:5px;font-weight: bold;">
+                    Hello,
+                    {{ user.first_name }} !</p>
+                <a href="{% url 'user_logout' %}"
+                    style="color:red;font-size:1.3em;border:1px solid red;padding:10px 20px;margin-right: 5px;margin-top: -15px;">Logout!</a>
+                {% else %}
+                <a href="{% url 'login_page' %}"
+                    style="color:#000;font-size:1.3em;border:1px solid #000;padding:10px 20px;margin-right: 5px;">Login!</a>
+                or
+                <a href="{% url 'options' %}"
+                    style="color:#000;font-size:1.3em;border:1px solid #000;padding:10px 20px;margin-left: 5px;">Register!</a>
+                {% endif %}
+
 
                 <!-- End off canvas menu -->
             </nav>

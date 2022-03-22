@@ -90,7 +90,19 @@
                     <h1>I am Influencer</h1><br>
                     <img src="{% static 'images/icon/brands.png' %}" alt="" height="80">
                     <p>Looking for Brands</p>
+                    <div class="row" style="margin-top:10%;margin-bottom:5%;">
+                        <a href="{% url 'homepage' %}"
+                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
+                            to Home</a>
+                    </div>
+                    or
+                    <div class="row" style="margin-top:5%">
+                        <a href="{% url 'options' %}"
+                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
+                            Back</a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

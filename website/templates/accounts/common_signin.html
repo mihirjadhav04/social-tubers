@@ -25,15 +25,16 @@
 </head>
 
 <body>
-    <div class="container" id="container">
+    <div class="container" id="container" style="width:800px;height:500px;">
 
-        <div class="form-container sign-in-container">
-            <form action="#"><br><br><br><br><br>
-                <h1>Sign in</h1>
-                <br><input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+        <div class="form-container sign-in-container" style="width:50%;height:auto;padding-top: 120px;">
+            <form method="POST" action="{% url 'login_page' %}">
+                {% csrf_token %}
+                <h1>Sign In</h1>
+                <br><input type="email" name="username" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
+                <!-- <a href="#">Forgot your password?</a> -->
+                <button type="submit" name="signin" style="margin-top: 10px;">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -46,12 +47,18 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Welcome Back!</h1>
                     <p>To keep connected with us please login with your personal info</p>
+                    <div class="row" style="margin-top:5%">
+                        <a href="{% url 'homepage' %}"
+                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
+                            to Home
+                        </a>
+                    </div>
                     {% comment %} <button class="ghost" id="signUp">Sign Up</button> {% endcomment %}
                 </div>
             </div>
         </div>
     </div>
-    ]
+
 
 </body>
 
