@@ -136,61 +136,43 @@
          </div>
          <!-- Col End -->
       </div>
+      <div class="row text-center">
+         <div class="col section-heading wow fadeInDown" data-wow-duration="1s">
+            <h2>
+               <small>Featuring</small>Our Top 3 <span>Influencers</span>
+            </h2>
+            <span class="animate-border ml-auto mr-auto tw-mt-20"></span>
+         </div>
+         <!-- End Col -->
+      </div>
       <!-- End Row 1 -->
       <div class="row">
-         <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/user1.png' %}" alt="">
-                  </div>
-                  <!-- End Features icon inner -->
-               </div>
-               <!-- End Features Icon -->
-               <h3>Create Profile</h3>
-               <p>Join us as an influencer.
-                  Include your channels, niche, target audience, interests, etc.
-               </p>
+         {% for tuber in featured_youtubers %}
 
-            </div>
-            <!-- End Single Features -->
-         </div>
-         <!-- Col End -->
-         <div class="col-lg-4 col-md-12  wow fadeInUp" data-wow-duration="1.6s" data-wow-delay=".4s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/brands1.png' %}" alt="">
-                  </div>
-                  <!-- End Features Icon inner -->
+         <div class="col-md-4 text-center">
+            <div class="tw-case-study-box" style="width: 300px;height: auto;">
+               <div class="case-img study-bg-1">
+                  <img src="{{ tuber.profile_photo.url }}" alt="" class="img-fluid">
                </div>
-               <!-- End Features Icon -->
-               <h3>Brands come to you</h3>
-               <p>Brands can reach out to your
-                  profile as per their requirements after verifying and analyzing your content.
-               </p>
+               <!-- End case img -->
+               <div class="casestudy-content">
+                  <a href="#">
+                     <h4>{{ tuber.channel_name }}</h4>
+                  </a>
+                  <p>{{ tuber.category_type }}</p>
 
-            </div>
-            <!-- End Single Features -->
-         </div>
-         <!-- end col -->
-         <div class="col-lg-4 col-md-12  wow fadeInUp" data-wow-duration="1.9s" data-wow-delay=".6s">
-            <div class="features-box">
-               <div class="features-icon d-table">
-                  <div class="features-icon-inner d-table-cell">
-                     <img src="{% static 'images/icon/handshake1.png' %}" alt="">
-                  </div>
-                  <!-- End Features Icon inner -->
+                  <a href="{% url 'influencer_details' tuber.user_id %}">
+                     <p style="font-size:18px;color:black">View Details
+                        <!-- influencer/services-->
+                        <i class="fa fa-angle-right"></i>
+                     </p>
+                  </a>
                </div>
-               <!-- End Features Icon -->
-               <h3>Collaborate</h3>
-               <p>Use Influencer Mediator to keep track of invitations,
-                  relationships and more in one single platform.
-               </p>
-
+               <!-- End case study content -->
             </div>
-            <!-- End Single Features -->
+            <!-- End case study box -->
          </div>
+         {% endfor %}
          <!-- End col -->
       </div>
       <!-- End Row 2 -->

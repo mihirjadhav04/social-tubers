@@ -103,7 +103,7 @@ class CommonSignInView(CreateView):
 
 
 def Influencers(request):
-    all_tubers = Influencer.objects.all()
+    all_tubers = Influencer.objects.order_by("-created_date")
 
     paginator = Paginator(all_tubers, 3)
     page = request.GET.get("page")
@@ -263,7 +263,7 @@ def convert_count(num):
 
 def search(request):
     # order_by will give us an object(key:value) pair
-    search_tubers = Youtuber.objects.order_by("-created_date")
+    search_tubers = Influencer.objects.order_by("-created_date")
 
     if "keyword" in request.GET:
         keyword = request.GET["keyword"]
