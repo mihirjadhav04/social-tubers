@@ -49,16 +49,17 @@ def CommonLoginView(request):
         if user is not None:
             # make the user to be login
             auth.login(request, user)
-            messages.warning(request, "You are logged In")
+            messages.success(request, "You are logged In")
             return redirect("homepage")
 
         else:
-            messages.warning(request, "Invalid Credentials")
+            messages.error(request, "Invalid Credentials")
     return render(request, "accounts/common_signin.html")
 
 
 def user_logout(request):
     logout(request)
+    messages.error(request, "You have been logged out!")
     return redirect("homepage")
 
 
@@ -77,6 +78,7 @@ class InfluencerSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+
         # login(self.request, user)
         return redirect("login_page")
 
@@ -92,6 +94,7 @@ class BrandSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+
         # login(self.request, user)
         return redirect("login_page")
 

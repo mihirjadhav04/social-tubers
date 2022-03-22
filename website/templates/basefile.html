@@ -5,6 +5,14 @@
 {% include "includes/head.html" %}
 
 <body>
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{msg.message}}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% comment %} {% include "includes/top_header.html" %} {% endcomment %}
     {% include "includes/header.html" %}
     {% block content %}
@@ -12,6 +20,7 @@
     {% endblock %}
     {% include "includes/footer.html" %}
     {% include "includes/scripts.html" %}
+
 </body>
 
 </html>

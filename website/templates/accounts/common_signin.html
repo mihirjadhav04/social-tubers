@@ -25,6 +25,23 @@
 </head>
 
 <body>
+    <!-- {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{msg.message}}
+    </div>
+    {% endfor %}
+    {% endif %} -->
+
+    {% if messages %}
+    <ul class="messages"
+        style="background-color: #000;color: #fff; padding: 10px 20px;font-size: 20px;list-style-type: none;">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }} , Please Try Again!</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     <div class="container" id="container" style="width:800px;height:500px;">
 
         <div class="form-container sign-in-container" style="width:50%;height:auto;padding-top: 120px;">
