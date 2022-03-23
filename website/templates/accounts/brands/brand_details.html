@@ -1,0 +1,63 @@
+{% extends "basefile.html" %}
+{% load static %}
+{% block content %}
+
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'images/banner/banner5.jpg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="banner-heading">
+                    <h1 class="banner-title">Brand Details</h1>
+                    <ol class="breadcrumb">
+                        <li>Home</li>
+                        <li>Brand Details</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Col end -->
+        </div>
+        <!-- Row end -->
+    </div>
+    <!-- Container end -->
+</div>
+<!-- Banner area end -->
+
+<section id="tw-final-result" class="tw-final-result">
+    <div class="container" style="padding-left: -30px;">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="section-heading">
+                    <h2>
+                        {{brand.brand_name}}
+                        <a href="#"><i class="fa fa-youtube-play"
+                                style="font-size:37px;color:red; radius:40px"></i></i></a>
+                        <a href="#"><i class="fa fa-instagram"
+                                style="font-size:35px;color:red; radius:40px"></i></i></a>
+                        <span class="animate-border tw-mt-20 tw-mb-35"></span>
+                    </h2>
+                </div>
+                <div class="tw-results-content">
+                    <p>Doloribus cum reiciendis labore ducimus necessitatibus esse porro quo veritatis harum,
+                        autem deserunt nemo necessitatibus in omnis beatae non, blanditiis possimus porro
+                        magni voluptates, fuga sed soluta optio veniam a cupiditate ducimus quod. Enim porro
+                        culpa ullam accusantium consequatur iste sint alias quasi, iste beatae nemo rem consequuntur,
+                        quam tempore dolorem ullam odit quae. Odio excepturi et veritatis sed voluptatibus
+                        ipsum voluptate nam blanditiis quidem.</p>
+
+                </div>
+            </div>
+            <!-- Col End -->
+            <div class="col-md-5">
+                <img style="height: 400px; width:auto;" src="{{ brand.profile_photo.url }}" alt="">
+            </div>
+            <!-- Col End -->
+        </div>
+    </div>
+</section>
+
+<!-- Scripts -->
+<script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js' %}"></script>
+<script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js' %}"></script>
+
+
+{% endblock %}

@@ -127,11 +127,9 @@ def Brands(request):
 
 def BrandDetails(request, id):
     brand = get_object_or_404(Brand, pk=id)
-    print(brand)
-    return render(
-        request,
-        "accounts/brands/brand_details.html",
-    )
+    # print(brand)
+    data = {"brand": brand}
+    return render(request, "accounts/brands/brand_details.html", data)
 
 
 def Influencers(request):
