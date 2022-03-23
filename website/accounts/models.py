@@ -75,7 +75,7 @@ class Brand(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     category_type = models.CharField(max_length=100)
     brand_name = models.CharField(max_length=100)
-    established_date = models.DateField()
+    # established_date = models.DateField()
     instagram_id = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
     short_description = models.CharField(max_length=255)

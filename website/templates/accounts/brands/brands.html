@@ -47,21 +47,21 @@
         <section id="main-container" class="main-container">
             <div class="container">
                 <div class="row pt-5">
-                    {% for tuber in all_tubers %}
+                    {% for brand in all_brands %}
 
                     <div class="col-md-4 text-center">
-                        <div class="tw-case-study-box" style="width: 300px;height: auto;">
+                        <div class="tw-case-study-box" style="width: fit-content;height: auto;">
                             <div class="case-img study-bg-1">
-                                <img src="{{ tuber.profile_photo.url }}" alt="" class="img-fluid">
+                                <img src="{{ brand.profile_photo.url }}" alt="" class="img-fluid">
                             </div>
                             <!-- End case img -->
                             <div class="casestudy-content">
                                 <a href="#">
-                                    <h4>{{ tuber.channel_name }}</h4>
+                                    <h4>{{ brand.brand_name }}</h4>
                                 </a>
-                                <p>{{ tuber.category_type }}</p>
+                                <p>{{ brand.category_type }}</p>
+                                <a href="{% url 'brand_details' brand.user_id %}">
 
-                                <a href="{% url 'influencer_details' tuber.user_id %}">
                                     <p style="font-size:18px;color:black">View Details
                                         <!-- influencer/services-->
                                         <i class="fa fa-angle-right"></i>
@@ -103,17 +103,17 @@
 <div class="paging text-center">
     <ul class="pagination justify-content-center">
         <!-- #Previous Page Button -->
-        {% if all_tubers.has_previous %}
-        <li><a href="?page={{all_tubers.previous_page_number}}" aria-label="Previous"><i
+        {% if all_brands.has_previous %}
+        <li><a href="?page={{all_brands.previous_page_number}}" aria-label="Previous"><i
                     class="icon icon-arrow-left"></i></a></li>
         {% endif %}
 
         <!-- #Current Active Page -->
-        <li><a href="#">{{all_tubers.number}}</a></li>
+        <li><a href="#">{{all_brands.number}}</a></li>
 
         <!-- #Next Page Button -->
-        {% if all_tubers.has_next %}
-        <li><a href="?page={{all_tubers.next_page_number}}" aria-label="Next"><i class="icon icon-arrow-right"></i></a>
+        {% if all_brands.has_next %}
+        <li><a href="?page={{all_brands.next_page_number}}" aria-label="Next"><i class="icon icon-arrow-right"></i></a>
         </li>
         {% endif %}
 

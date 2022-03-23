@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import math
 
 # Create your views here.
-from .models import Influencer
+# from .models import Influencer, Brands
 
 # for pagiantion
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -33,9 +33,9 @@ from django.contrib.auth.decorators import login_required
 
 # API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
 
-# API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
+API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
 
-API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
+# API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
 
 def CommonLoginView(request):
@@ -103,6 +103,35 @@ class CommonSignInView(CreateView):
     model = User
     form_class = CommonSignInForm
     template_name = "accounts/common_signin.html"
+
+
+def Brands(request):
+    # print("Function called!")
+    all_brands = Brand.objects.order_by("-created_date")
+    # print(all_brands)
+    paginator = Paginator(all_brands, 3)
+    page = request.GET.get("page")
+    try:
+        brands = paginator.page(page)
+    except PageNotAnInteger:
+        brands = paginator.page(1)
+    except EmptyPage:
+        brands = paginator.page(all_brands.num_pages)
+
+    data = {
+        "all_brands": brands,
+    }
+    print(all_brands)
+    return render(request, "accounts/brands/brands.html", data)
+
+
+def BrandDetails(request, id):
+    brand = get_object_or_404(Brand, pk=id)
+    print(brand)
+    return render(
+        request,
+        "accounts/brands/brand_details.html",
+    )
 
 
 def Influencers(request):
@@ -302,5 +331,5 @@ def search(request):
         print("File Dumped")
 
 
-def Brands(request):
-    return render(request, "accounts/brands/brands.html")
+# def Brands(request):
+#     return render(request, "accounts/brands/brands.html")

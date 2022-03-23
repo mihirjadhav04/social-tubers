@@ -12,6 +12,7 @@ from .views import (
     Influencers,
     InfluencerDetails,
     Brands,
+    BrandDetails,
     Options,
     CommonLoginView,
     user_logout,
@@ -27,5 +28,6 @@ urlpatterns = [
     path("user_logout/", user_logout, name="user_logout"),
     path("influencers/", Influencers, name="influencers"),
     path("influencer_details/<int:id>/", InfluencerDetails, name="influencer_details"),
+    path("brand_details/<int:id>/", BrandDetails, name="brand_details"),
     path("brands/", Brands, name="brands"),
 ]

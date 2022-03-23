@@ -1,0 +1,60 @@
+{% extends "basefile.html" %}
+{% load static%}
+{% block content %}
+<div id="banner-area" class="banner-area" style="background-image:url({% static 'images/banner/banner5.jpg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="banner-heading">
+                    <h1 class="banner-title">Search Results</h1>
+                    <ol class="breadcrumb">
+                        <li>Home</li>
+                        <li>Search Results</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Col end -->
+        </div>
+        <!-- Row end -->
+    </div>
+    <!-- Container end -->
+</div>
+<!-- Banner area end -->
+
+
+<section id="main-container" class="main-container">
+    <div class="container">
+        <div class="row pt-5">
+            {% for tuber in all_tubers %}
+
+            <div class="col-md-4 text-center">
+                <div class="tw-case-study-box" style="width: 300px;height: auto;">
+                    <div class="case-img study-bg-1">
+                        <img src="{{ tuber.profile_photo.url }}" alt="" class="img-fluid">
+                    </div>
+                    <!-- End case img -->
+                    <div class="casestudy-content">
+                        <a href="#">
+                            <h4>{{ tuber.channel_name }}</h4>
+                        </a>
+                        <p>{{ tuber.category_type }}</p>
+
+                        <a href="{% url 'influencer_details' tuber.user_id %}">
+                            <p style="font-size:18px;color:black">View Details
+                                <!-- influencer/services-->
+                                <i class="fa fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </div>
+                    <!-- End case study content -->
+                </div>
+                <!-- End case study box -->
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- Container end -->
+</section>
+
+{% endblock %}
