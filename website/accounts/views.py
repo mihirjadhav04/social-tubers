@@ -38,6 +38,24 @@ API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
 # API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
 
+def Influencers(request):
+    all_tubers = Influencer.objects.order_by("-created_date")
+
+    paginator = Paginator(all_tubers, 3)
+    page = request.GET.get("page")
+    try:
+        tubers = paginator.page(page)
+    except PageNotAnInteger:
+        tubers = paginator.page(1)
+    except EmptyPage:
+        tubers = paginator.page(all_tubers.num_pages)
+
+    data = {
+        "all_tubers": tubers,
+    }
+    return render(request, "accounts/influencers/influencers.html", data)
+
+
 def CommonLoginView(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -130,24 +148,6 @@ def BrandDetails(request, id):
     # print(brand)
     data = {"brand": brand}
     return render(request, "accounts/brands/brand_details.html", data)
-
-
-def Influencers(request):
-    all_tubers = Influencer.objects.order_by("-created_date")
-
-    paginator = Paginator(all_tubers, 3)
-    page = request.GET.get("page")
-    try:
-        tubers = paginator.page(page)
-    except PageNotAnInteger:
-        tubers = paginator.page(1)
-    except EmptyPage:
-        tubers = paginator.page(all_tubers.num_pages)
-
-    data = {
-        "all_tubers": tubers,
-    }
-    return render(request, "accounts/influencers/influencers.html", data)
 
 
 def InfluencerDetails(request, id):
