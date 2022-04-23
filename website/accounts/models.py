@@ -59,22 +59,19 @@ class User(AbstractUser):
 
 
 class Influencer(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     channel_name = models.CharField(max_length=100)
     youtube_id = models.CharField(max_length=100)
     instagram_id = models.CharField(max_length=100, null=True, blank=True)
     category_type = models.CharField(max_length=100)
     short_description = models.CharField(max_length=255)
     is_featured = models.BooleanField(default=False)
-    profile_photo = models.ImageField(
-        upload_to="influencer_images/%Y/%m/", null=True, blank=True)
+    profile_photo = models.ImageField(upload_to="influencer_images/%Y/%m/", null=True, blank=True)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
 
 
 class Brand(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     category_type = models.CharField(max_length=100)
     brand_name = models.CharField(max_length=100)
     # established_date = models.DateField()

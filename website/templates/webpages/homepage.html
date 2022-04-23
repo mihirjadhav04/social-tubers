@@ -220,6 +220,25 @@
                   </div>
                </form>
                <!-- End Form -->
+
+               <form class="form-vertical" action="{% url 'searchresultpage' %}" method="post">
+                  {% csrf_token %}
+                  <div class="row justify-content-center">
+                     <div class="col-lg-4 col-md-12 no-padding">
+                        <div class="form-group tw-form-round-shape">
+                           <input style="border-radius: 50px;padding: 15px 30px;border: none;" type="text" name="influencer" placeholder="Influencer's Name"
+                              class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-md-12 no-padding">
+                        <div class="form-group">
+                           <input  type="submit" name="search" value="Search">
+                        </div>
+                     </div>
+                  </form>
+
+
+
             </div>
             <!-- End Analysis form -->
          </div>
