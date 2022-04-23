@@ -1,0 +1,96 @@
+{
+  "kind": "youtube#videoCategoryListResponse",
+  "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/1v2mrzYSYG6onNLt2qTj13hkQZk\"",
+  "items": [
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/Xy1mB4_yLrHy_BmKmPBggty2mZQ\"",
+      "id": "1",
+      "snippet": {
+        "channelId": "UC-oF_IAWS_NILRaScyRmY0g",
+        "title": "Entertainment",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/UZ1oLIIz2dxIhO45ZTFR3a3NyTA\"",
+      "id": "2",
+      "snippet": {
+        "channelId": "UCo7ttcxRQH9WrDGxxB-QAew",
+        "title": "Sports",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/nqRIq97-xe5XRZTxbknKFVe5Lmg\"",
+      "id": "10",
+      "snippet": {
+        "channelId": "UCx6F-rETGiz7xf_vkMmX2yQ",
+        "title": "Gaming",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/HwXKamM1Q20q9BN-oBJavSGkfDI\"",
+      "id": "15",
+      "snippet": {
+        "channelId": "UCCUoz5ivpW5fbZIDGUTacbQ",
+        "title": "Education",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/9GQMSRjrZdHeb1OEM1XVQ9zbGec\"",
+      "id": "17",
+      "snippet": {
+        "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+        "title": "Sports",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/FJwVpGCVZ1yiJrqZbpqe68Sy_OE\"",
+      "id": "18",
+      "snippet": {
+        "channelId": "UCl5dXugC3XZeDVsDkTaWJ4g",
+        "title": "Travel",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/M-3iD9dwK7YJCafRf_DkLN8CouA\"",
+      "id": "19",
+      "snippet": {
+        "channelId": "UCc9Po66Ghg5-RChE8VLaE-Q",
+        "title": "Beauty",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/WmA0qYEfjWsAoyJFSw2zinhn2wM\"",
+      "id": "20",
+      "snippet": {
+        "channelId": "UCXsXitjiT_8qPgNEFGPVfBA",
+        "title": "Technology",
+        "assignable": true
+      }
+    },
+    {
+      "kind": "youtube#videoCategory",
+      "etag": "\"ld9biNPKjAjgjV7EZ4EKeEGrhao/M-3iD9dwK7YJCafRf_DkLN8CouA\"",
+      "id": "21",
+      "snippet": {
+        "channelId": "UCzqQvVAkCEFrWI2VOPzFpeg",
+        "title": "Music",
+        "assignable": true
+      }
+    }
+  ]
+}
