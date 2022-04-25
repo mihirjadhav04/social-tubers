@@ -66,6 +66,7 @@ WSGI_APPLICATION = "website.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+import dj_database_url
 
 DATABASES = {
     "default": {
@@ -73,18 +74,17 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-import dj_database_url
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "socialtubers_db",
-        "USER": "postgres",
-        "PASSWORD": "apple@143",
-        "HOST": "",
-        "PORT": "",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "socialtubers_db",
+#         "USER": "postgres",
+#         "PASSWORD": "apple@143",
+#         "HOST": "",
+#         "PORT": "",
+#     }
+# }
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)

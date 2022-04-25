@@ -756,7 +756,7 @@ nav.navbar {
 }
 .navbar-light .navbar-toggler {
   border-color: #fa6742;
-  background-color: #fa6742;
+  /* background-color: #fa6742; */
 }
 .navbar-light .navbar-toggler:hover {
   cursor: pointer;

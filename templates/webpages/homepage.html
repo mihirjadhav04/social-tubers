@@ -195,11 +195,11 @@
       <div class="row justify-content-center">
          <div class="col-md-8 text-center wow fadeInDown">
             <h2 class="text-white">
-               A Place Where<br />
+               <span style="font-size:0.7em"> A Place Where </span><br />
                <span class="text-black">Influencers and Brands meet</span>
             </h2>
             <div class="analysis-form">
-               <form class="form-vertical" action="{% url 'brand_signup' %}">
+               <!-- <form class="form-vertical" action="{% url 'brand_signup' %}">
                   <div class="row justify-content-center">
                      <div class="col-lg-4 col-md-12 no-padding">
                         <div class="form-group">
@@ -207,9 +207,9 @@
                            <input type="submit" value="I am a Brand"></a>
                         </div>
                      </div>
-               </form>
+               </form> -->
 
-               <form class="form-vertical" action="{% url 'influencer_signup' %}">
+               <!-- <form class="form-vertical" action="{% url 'influencer_signup' %}">
                   {% comment %} <div class="row justify-content-center"> {% endcomment %}
                      <div class="col-lg-4 col-md-12 no-padding">
                         <div class="form-group">
@@ -218,24 +218,24 @@
                         {% comment %}
                      </div> {% endcomment %}
                   </div>
-               </form>
+               </form> -->
                <!-- End Form -->
 
                <form class="form-vertical" action="{% url 'searchresultpage' %}" method="post">
                   {% csrf_token %}
                   <div class="row justify-content-center">
-                     <div class="col-lg-4 col-md-12 no-padding">
+                     <div class="col-lg-6 col-md-12 no-padding">
                         <div class="form-group tw-form-round-shape">
-                           <input style="border-radius: 50px;padding: 15px 30px;border: none;" type="text" name="influencer" placeholder="Influencer's Name"
-                              class="form-control">
+                           <input style="border-radius: 50px;padding: 15px 30px;border: none;" type="text"
+                              name="influencer" placeholder="Search your influencer here..." class="form-control">
                         </div>
                      </div>
                      <div class="col-lg-4 col-md-12 no-padding">
                         <div class="form-group">
-                           <input  type="submit" name="search" value="Search">
+                           <input type="submit" name="search" value="Search">
                         </div>
                      </div>
-                  </form>
+               </form>
 
 
 
