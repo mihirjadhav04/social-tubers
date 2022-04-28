@@ -87,7 +87,8 @@
       </div>
       <!-- Row End -->
       <div class="contact-us-form">
-         <form id="contact-form" class="contact-form" action="contact-form.php" method="POST">
+         <form id="contact-form" class="contact-form" action="{% url 'contactpage' %}" method="post" role="form">
+            {% csrf_token %}
             <div class="error-container"></div>
             <div class="row">
                <div class="col-lg-6">
@@ -97,18 +98,18 @@
                   </div>
                </div>
                <!-- Col end -->
-               <div class="col-lg-6">
+               <!-- <div class="col-lg-6">
                   <div class="form-group">
                      <input class="form-control form-phone" name="phone" id="phone" placeholder="Phone" type="phone">
                   </div>
-               </div>
+               </div> -->
                <div class="col-lg-6">
                   <div class="form-group">
                      <input class="form-control form-email" name="email" id="email" placeholder="Email" type="email"
                         required="">
                   </div>
                </div>
-               <div class="col-lg-6">
+               <div class="col-lg-12">
                   <div class="form-group">
                      <input class="form-control form-subject" placeholder="Subject" name="subject" id="subject"
                         type="text">
@@ -116,8 +117,8 @@
                </div>
                <div class="col-lg-12">
                   <div class="form-group">
-                     <textarea class="form-control form-message required-field" id="message" placeholder="Comments"
-                        rows="5"></textarea>
+                     <textarea class="form-control form-message required-field" id="message" name="message"
+                        placeholder="Comments" rows="5"></textarea>
                   </div>
                </div>
                <!-- Col 12 end -->

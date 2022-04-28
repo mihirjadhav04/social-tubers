@@ -1,8 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect, reverse
 from accounts.models import Influencer, User
 import pickle
 from django.contrib.staticfiles.storage import staticfiles_storage
 import pandas as pd
+
+from django.core.mail import send_mail
+from django.template import loader
+
+
+
+
+# from .forms import ContactForm
 # Create your views here.
 def homepage(request):
     featured_youtubers = Influencer.objects.order_by("-created_date").filter(
@@ -22,11 +30,36 @@ def aboutpage(request):
 
 
 def contactpage(request):
-    return render(request, "webpages/contactpage.html")
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        template = loader.get_template('webpages/email_content.txt')
+        context = {
+            'name' : name,
+            'email' : email,
+            'subject' : subject,
+            'message' : message,
+        }
+        content = template.render(context)
+
+        send_mail(
+            subject,
+            content,
+            email,
+            ['socialtubersofficial@gmail.com'],
+            fail_silently=False
+        )
+        print(email)
+
+        return redirect(reverse('contactpage'))
+    return render(request, 'webpages/contactpage.html',{})
 
 
-# def service(request):
-#     return render(request, "webpages/service.html")
+def service(request):
+    return render(request, "webpages/service.html")
 
 
 def searchresultpage(request):

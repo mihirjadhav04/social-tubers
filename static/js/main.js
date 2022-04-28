@@ -434,46 +434,46 @@ $(function ($) {
   }
 
   /* Contact Form */
-  $("#contact-form").submit(function () {
-    var $form = $(this),
-      $error = $form.find(".error-container"),
-      action = $form.attr("action");
+  // $("#contact-form").submit(function () {
+  //   var $form = $(this),
+  //     $error = $form.find(".error-container"),
+  //     action = $form.attr("action");
 
-    $error.slideUp(750, function () {
-      $error.hide();
+  //   $error.slideUp(750, function () {
+  //     $error.hide();
 
-      var $name = $form.find(".form-name"),
-        $phone = $form.find(".form-phone"),
-        $email = $form.find(".form-email"),
-        $subject = $form.find(".form-subject"),
-        $message = $form.find(".form-message");
+  //     var $name = $form.find(".form-name"),
+  //       $phone = $form.find(".form-phone"),
+  //       $email = $form.find(".form-email"),
+  //       $subject = $form.find(".form-subject"),
+  //       $message = $form.find(".form-message");
 
-      $.post(
-        action,
-        {
-          name: $name.val(),
-          phone: $phone.val(),
-          email: $email.val(),
-          subject: $subject.val(),
-          message: $message.val(),
-        },
-        function (data) {
-          $error.html(data);
-          $error.slideDown("slow");
+  //     $.post(
+  //       action,
+  //       {
+  //         name: $name.val(),
+  //         phone: $phone.val(),
+  //         email: $email.val(),
+  //         subject: $subject.val(),
+  //         message: $message.val(),
+  //       },
+  //       function (data) {
+  //         $error.html(data);
+  //         $error.slideDown("slow");
 
-          if (data.match("success") != null) {
-            $name.val("");
-            $phone.val("");
-            $email.val("");
-            $subject.val("");
-            $message.val("");
-          }
-        }
-      );
-    });
+  //         if (data.match("success") != null) {
+  //           $name.val("");
+  //           $phone.val("");
+  //           $email.val("");
+  //           $subject.val("");
+  //           $message.val("");
+  //         }
+  //       }
+  //     );
+  //   });
 
-    return false;
-  });
+  //   return false;
+  // });
 
   /* Service List Box Slider */
   if ($(".service-list-carousel").length > 0) {
