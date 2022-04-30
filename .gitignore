@@ -58,8 +58,8 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# db.sqlite3
+# db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -159,8 +159,8 @@ cython_debug/
 *.pot
 *.pyc
 __pycache__
-db.sqlite3
-media
+# db.sqlite3
+# media
 
 # Backup files # 
 *.bak 
