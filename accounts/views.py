@@ -161,6 +161,7 @@ def InfluencerDetails(request, id):
     subCount = 0
     viewCount = 0
     videoCount = 0
+   
     # creating object of YTstats as yt
     yt = YTstats(API_KEY, channel_id)
     print(yt)
@@ -174,7 +175,10 @@ def InfluencerDetails(request, id):
             videoCount = value
         if key == "viewCount":
             viewCount = value
-
+            
+    base_price = round(int(viewCount) / int(videoCount))
+    print(base_price)
+    
     subCount = convert_count(subCount)
     viewCount = convert_count(viewCount)
     videoCount = convert_count(videoCount)
@@ -220,36 +224,7 @@ def InfluencerDetails(request, id):
     avg_views = avg_views / len(stats)
     # avg_dislikes = avg_dislikes / len(stats)
     avg_data = [round(avg_views), round(avg_likes)]
-    # yt.dump()
-    # print(len(stats))
-    # if request.method == "POST":
-    #     client_name = request.POST.get("name")
-    #     influencer_name = request.POST.get("influencer_name")
-    #     to_email = request.POST.get("influencer_email")
-    #     from_email = request.POST.get("email")
-    #     subject = request.POST.get("subject")
-    #     message = request.POST.get("message")
-    #     # print(client_name,client_email, to_email,message,from_email,subject)
 
-    #     contacted_influencer = ContactInfluencer(
-    #         client_name=client_name,
-    #         client_email=from_email,
-    #         influencer_name=influencer_name,
-    #         influencer_email=to_email,
-    #         subject=subject,
-    #         message=message,
-    #     )
-
-    #     contacted_influencer.save()
-
-    #     send_mail(
-    #         subject,
-    #         message + "\n\n\nFor Further Details,\nContact On: " + from_email,
-    #         from_email,
-    #         [to_email],
-    #     )
-    #     # contacted_influencer =
-    #     return redirect("home")
 
     data = {
         "tuber": tuber,
@@ -259,6 +234,7 @@ def InfluencerDetails(request, id):
         "videoCount": videoCount,
         "stats": stats,
         "top_video": top_video,
+        "base_price":base_price,
     }
     return render(request, "accounts/influencers/influencer_details.html", data)
 
