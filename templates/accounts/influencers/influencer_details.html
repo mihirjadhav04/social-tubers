@@ -123,7 +123,7 @@
       <br><br>
       <div style="text-align: center">
          <div class="text text-center mb-5">
-            <span class="subheading">{{tuber.influencer_name}}</span>
+            <span class="subheading">{{tuber.channel_name}}'s</span>
             <h2>TOP VIDEO</h2> <br>
             <iframe width="700" height="450" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -132,39 +132,13 @@
       </div>
 
       <div style="text-align: center">
-         <span class="subheading">Influencer's</span>
-         <h2>TOP 10 VIDEOS</h2> <br>
+         <span class="subheading">{{tuber.channel_name}}'s</span>
+         <h2>TOP 5 VIDEOS BASED ON VIEWS</h2> <br>
       </div>
-
-      <style>
-         table,
-         td {
-            border: 2px solid black;
-            color: #1b1b21;
-            background: rgb(248, 233, 233);
-         }
-
-         th {
-            border: 1px solid white;
-            color: #FA6742;
-
-               {
-               % comment %
-            }
-
-            color:white;
-
-               {
-               % endcomment %
-            }
-
-            background: #1b1b21
-         }
-      </style>
-
-      <table class="table table-hover" style="margin-left: auto; margin-right: auto; width:100%;">
+      <table class="table table-hover">
          <thead>
             <tr>
+               <!-- <th scope="col">Thumbnail</th> -->
                <th scope="col">Video Title</th>
                <th scope="col">Views</th>
                <th scope="col">Likes</th>
@@ -173,57 +147,40 @@
          </thead>
          <tbody>
             {% for st in stats %}
-            {% if forloop.counter < 11 %} <tr>
-               <a href="https://youtu.be/{{st.0}}">
-                  <td>{{ st.1 }}</td>
-               </a>
-               <td>{{ st.2 }}</td>
-               <td>{{ st.3 }}</td>
-               <td>{{ st.4 }}</td>
+            {% if forloop.counter < 6 %} <tr>
+               <td><a href="https://www.youtube.com/watch?v={{ st.0 }}" target="_blank"> {{ st.1}}</a></td>
+               <td>{{ st.2}}</td>
+               <td>{{ st.3}}</td>
+               <td>{{ st.4}}</td>
+
                </tr>
                {% endif %}
                {% endfor %}
-
-
          </tbody>
       </table>
-      <br><br>
 
-      <div style="text-align: center">
+
+      <hr>
+      <div style="text-align: center;margin-top: 5%;">
          <span class="subheading">Influencer's</span>
-         <h2>Statistical Analysis</h2> <br>
+         <h2>Recent 2 Videos</h2> <br>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <iframe width="500" height="350" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
+                  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+            </div>
+            <div class="col-md-6">
+               <iframe width="500" height="350" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
+                  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+            </div>
+         </div>
       </div>
 
 
-      <section id="tw-analysis" class="tw-analysis-area">
-         <div class="container">
-            <div class="row justify-content-center">
-               <div class="col-md-8 text-center wow fadeInDown">
-                  <h2 class="column-title">
-                     {% comment %} Influencer {% endcomment %}
-                     <span class="text-white">Influencer Pricing Calculator</span>
-                  </h2>
-                  <div class="analysis-form">
-                     <form class="form-vertical">
-                        <div class="row justify-content-center">
-                           <div class="col-lg-4 col-md-12 no-padding">
-                              <div class="form-group tw-form-round-shape">
-                                 <input type="url" id="url" name="url" placeholder="Youtube Channel Name"
-                                    class="form-control">
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-12 no-padding">
-                              <div class="form-group">
-                                 <input type="submit" value="Calculate">
-                              </div>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
 
 
    </div>

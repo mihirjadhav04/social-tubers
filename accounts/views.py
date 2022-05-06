@@ -34,9 +34,9 @@ from django.contrib.auth.decorators import login_required
 # API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
 
 # NEW API KEY - Created on 6th May 2022
-API_KEY = "AIzaSyA2iCqcMBI4RDTbyVLh0LDe5mOE2lYKtbk"
+# API_KEY = "AIzaSyA2iCqcMBI4RDTbyVLh0LDe5mOE2lYKtbk"
 
-# API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
+API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
 
 def Influencers(request):
@@ -188,9 +188,12 @@ def InfluencerDetails(request, id):
     # print(viewCount)
     # Video Statistics
     # Sort video data according to the view count
+    # print(video_stats)
     sorted_videos = sorted(
         video_stats.items(), key=lambda item: int(item[1]["viewCount"]), reverse=True
     )
+    
+        
     stats = []
     for vid in sorted_videos:
         video_id = vid[0]
