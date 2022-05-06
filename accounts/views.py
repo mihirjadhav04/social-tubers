@@ -28,15 +28,20 @@ from django.contrib.auth.decorators import login_required
 
 # from .models import ContactInfluencer
 
-# latest api key - gamil: jadhavmihir143
+# Account: jadhavmihir143@gmail.com
 # API_KEY = "AIzaSyAvqYKXBzQPwXNgFCcxVP-egG55DQNhs4w"
-
-# API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
 
 # NEW API KEY - Created on 6th May 2022
 # API_KEY = "AIzaSyA2iCqcMBI4RDTbyVLh0LDe5mOE2lYKtbk"
 
-API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
+# Account : mihir.jadhav@somaiya.edu
+# API_KEY = "AIzaSyBA73nZuumlE2Lr5kWbZynWP6jsj45vcHw"
+
+# Account : socialtubersofficial@gmail.com 
+# API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
+
+# Account : jadhavbhavin10@gmail.com 
+API_KEY = "AIzaSyCHmpIu_PXyd4V3ugZ0W0A57F7a8sgX7Y0"
 
 
 def Influencers(request):
@@ -177,7 +182,7 @@ def InfluencerDetails(request, id):
         if key == "viewCount":
             viewCount = value
             
-    base_price = round(int(viewCount) / int(videoCount))
+    base_price = round(int(viewCount) / int(videoCount)) * 2
     print(base_price)
     
     subCount = convert_count(subCount)
@@ -192,8 +197,18 @@ def InfluencerDetails(request, id):
     sorted_videos = sorted(
         video_stats.items(), key=lambda item: int(item[1]["viewCount"]), reverse=True
     )
+    converted_list = list(video_stats.items())
+    # print(list_stats)
+    sliced_converted_list = converted_list[0:2]
+    sliced_converted_list_recent_three_videoid = []
+    for upload in sliced_converted_list:
+        # print(upload[0])
+        sliced_converted_list_recent_three_videoid.append(upload[0])
+    # print(sliced_converted_list_recent_three_videoid)
     
-        
+    
+    
+    
     stats = []
     for vid in sorted_videos:
         video_id = vid[0]
@@ -202,6 +217,8 @@ def InfluencerDetails(request, id):
         likes = int(vid[1]["likeCount"])
         # dislikes = int(vid[1]["dislikeCount"])
         comments = vid[1]["commentCount"]
+        thumbnail = vid[1]["thumbnails"]["default"]["url"]
+        # print(thumbnail)
         stats.append(
             [
                 video_id,
@@ -210,6 +227,7 @@ def InfluencerDetails(request, id):
                 likes,
                 # dislikes,
                 comments,
+                thumbnail,
             ]
         )
 
@@ -239,6 +257,7 @@ def InfluencerDetails(request, id):
         "stats": stats,
         "top_video": top_video,
         "base_price":base_price,
+        "recent_three_upload": sliced_converted_list_recent_three_videoid,
     }
     return render(request, "accounts/influencers/influencer_details.html", data)
 

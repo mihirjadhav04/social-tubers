@@ -138,7 +138,7 @@
       <table class="table table-hover">
          <thead>
             <tr>
-               <!-- <th scope="col">Thumbnail</th> -->
+               <th scope="col">#</th>
                <th scope="col">Video Title</th>
                <th scope="col">Views</th>
                <th scope="col">Likes</th>
@@ -148,6 +148,7 @@
          <tbody>
             {% for st in stats %}
             {% if forloop.counter < 6 %} <tr>
+               <td><img src="{{st.5}}" alt="Thumbnail" srcset="" width="100" height="auto"></td>
                <td><a href="https://www.youtube.com/watch?v={{ st.0 }}" target="_blank"> {{ st.1}}</a></td>
                <td>{{ st.2}}</td>
                <td>{{ st.3}}</td>
@@ -163,20 +164,20 @@
       <hr>
       <div style="text-align: center;margin-top: 5%;">
          <span class="subheading">Influencer's</span>
-         <h2>Recent 2 Videos</h2> <br>
+         <h2>RECENT 2 VIDEO UPLOADS</h2> <br>
       </div>
       <div class="container">
          <div class="row">
-            <div class="col-md-6">
-               <iframe width="500" height="350" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
+            {% for uploads in recent_three_upload %}
+
+            <div class="col-md-6" style="padding: 10px;">
+               <iframe width="500" height="350" src="https://www.youtube.com/embed/{{uploads}}" frameborder="0"
                   allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
             </div>
-            <div class="col-md-6">
-               <iframe width="500" height="350" src="https://www.youtube.com/embed/{{top_video}}" frameborder="0"
-                  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-            </div>
+            {% endfor %}
+
+
          </div>
       </div>
 
