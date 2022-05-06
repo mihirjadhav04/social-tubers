@@ -33,7 +33,8 @@ from django.contrib.auth.decorators import login_required
 
 # API_KEY = "AIzaSyCGEy4EZ4XinMU1voULK5GmZ5DBDE2OVp0"
 
-API_KEY = "AIzaSyBtH1_rHqJGvaLcR8tE-PR16bldFo82YdE"
+# NEW API KEY - Created on 6th May 2022
+API_KEY = "AIzaSyA2iCqcMBI4RDTbyVLh0LDe5mOE2lYKtbk"
 
 # API_KEY = "AIzaSyAFUh6biNVO_DoxdiU2qSotXot1WkAouPg"
 
