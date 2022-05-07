@@ -326,6 +326,3 @@ def search(request):
 
         print("File Dumped")
 
-
-# def Brands(request):
-#     return render(request, "accounts/brands/brands.html")
