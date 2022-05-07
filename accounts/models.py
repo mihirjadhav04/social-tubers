@@ -48,7 +48,9 @@ class User(AbstractUser):
     """User model."""
 
     username = None
-    name = models.CharField(max_length=100)
+    first_name = None
+    last_name = None
+    name = None
     email = models.EmailField(_("email address"), unique=True)
     is_influencer = models.BooleanField(default=False)
     is_brand = models.BooleanField(default=False)

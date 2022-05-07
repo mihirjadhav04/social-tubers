@@ -26,26 +26,26 @@ class InfluencerSignUpForm(UserCreationForm):
             }
         ),
     )
-    first_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Enter your first name.",
-                "style": "width: 300px;",
-                "class": "form-control",
-            }
-        ),
-    )
-    last_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Enter your last name.",
-                "style": "width: 300px;",
-                "class": "form-control",
-            }
-        ),
-    )
+    # first_name = forms.CharField(
+    #     max_length=100,
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder": "Enter your first name.",
+    #             "style": "width: 300px;",
+    #             "class": "form-control",
+    #         }
+    #     ),
+    # )
+    # last_name = forms.CharField(
+    #     max_length=100,
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder": "Enter your last name.",
+    #             "style": "width: 300px;",
+    #             "class": "form-control",
+    #         }
+    #     ),
+    # )
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(
@@ -60,7 +60,7 @@ class InfluencerSignUpForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Enter you youtube channel id.",
+                "placeholder": "Enter your youtube channel id.",
                 "style": "width: 300px;",
                 "class": "form-control",
             }
@@ -125,8 +125,8 @@ class InfluencerSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_influencer = True
         user.email = self.cleaned_data.get("email")
-        user.first_name = self.cleaned_data.get("first_name")
-        user.last_name = self.cleaned_data.get("last_name")
+        # user.first_name = self.cleaned_data.get("first_name")
+        # user.last_name = self.cleaned_data.get("last_name")
         user.save()
         influencer = Influencer.objects.create(user=user)
         influencer.channel_name = self.cleaned_data.get("channel_name")
