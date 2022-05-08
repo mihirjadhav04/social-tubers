@@ -4,8 +4,25 @@ from django.db import transaction
 
 from .models import User, Influencer, Brand
 
-
+CATAGORIES = (
+    ("Autos & Vehicles","Autos & Vehicles"),
+    ("Comedy","Comedy"),
+    ("Education","Education"),
+    ("Entertainment","Entertainment"),
+    ("Film & Animation","Film & Animation"),
+    ("Gaming","Gaming"),
+    ("Howto & Style","Howto & Style"),
+    ("Music","Music"),
+    ("News & Politics","News & Politics"),
+    ("Nonprofits & Activisms","Nonprofits & Activisms"),
+    ("People & Blogs","People & Blogs"),
+    ("Pets & Animals","Pets & Animals"),
+    ("Science & Technology","Science & Technology"),
+    ("Travel & Events","Travel & Events"),
+    ("Sports","Sports"),
+)
 class InfluencerSignUpForm(UserCreationForm):
+
     password1 = forms.CharField(
         max_length=50,
         widget=forms.PasswordInput(
@@ -26,26 +43,7 @@ class InfluencerSignUpForm(UserCreationForm):
             }
         ),
     )
-    # first_name = forms.CharField(
-    #     max_length=100,
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Enter your first name.",
-    #             "style": "width: 300px;",
-    #             "class": "form-control",
-    #         }
-    #     ),
-    # )
-    # last_name = forms.CharField(
-    #     max_length=100,
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Enter your last name.",
-    #             "style": "width: 300px;",
-    #             "class": "form-control",
-    #         }
-    #     ),
-    # )
+    
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(
@@ -86,22 +84,22 @@ class InfluencerSignUpForm(UserCreationForm):
             }
         ),
     )
-    category_type = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
+    category_type = forms.ChoiceField(
+        choices = CATAGORIES,
+        widget=forms.Select(
             attrs={
                 "placeholder": "Enter your category",
-                "style": "width: 300px;",
-                "class": "form-control",
+                "style": "width: 300px;padding:8px 10px;",
+                "class": "form-control", 
             }
         ),
     )
     short_description = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
+        # required=True,
+        widget=forms.Textarea(
             attrs={
                 "placeholder": "Describe yourself in short.",
-                "style": "width: 300px;",
+                "style": "width: 300px;margin-top:5px;",
                 "class": "form-control",
             }
         ),
@@ -133,6 +131,7 @@ class InfluencerSignUpForm(UserCreationForm):
         influencer.youtube_id = self.cleaned_data.get("youtube_id")
         influencer.instagram_id = self.cleaned_data.get("instagram_id")
         influencer.category_type = self.cleaned_data.get("category_type")
+        print(influencer.category_type)
         influencer.short_description = self.cleaned_data.get("short_description")
         influencer.profile_photo = self.cleaned_data.get("profile_photo")
         influencer.save()
