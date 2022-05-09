@@ -1,107 +1,137 @@
-{% load static%}
-{% block content %}
-
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <title>login</title>
-
-    <!-- FOR login
-       Bootstrap core CSS  -->
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Influencer/Brand Loginpage | theSocialTubers</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
 </head>
 
-<body>
-    <div class="container-fluid" id="container">
-        <div class="form-container sign-in-container p-5">
-            <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
-                {% csrf_token %}
-                <h1>Create Account </h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.category_type}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.channel_name}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.youtube_id}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.email}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.instagram_id}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.short_description}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.profile_photo}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.password1}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.password2}}
-                    </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-success" type="submit">Register! </button>
+<body style="overflow:hidden">
+    <main>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-7 login-section-wrapper">
+                    <!-- <div class="brand-wrapper">
+                        <img src="{% static 'assets/images/logo.svg' %}" alt="logo" class="logo">
+                    </div> -->
+
+                    <div class="login-wrapper" style="margin-top: -10%;font-size:10px;">
+                        {% for message in messages %}
+
+                        <div class="alert alert-danger">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            {{ message }}
+                        </div>
+
+                        {% endfor %}
+                        <h1 class="login-title">Register Here!</h1>
+                        <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Select your category</label>
+
+                                        {{ form.category_type }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Youtube Channel Name</label>
+
+                                        {{ form.channel_name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">YouTube Channel ID</label>
+
+                                        {{ form.youtube_id }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Instagram ID</label>
+
+                                        {{ form.instagram_id }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Describe yourself in short</label>
+
+                                        {{ form.short_description }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="password">Email</label>
+
+                                                {{ form.email }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="password">Profile Photo</label>
+
+                                            <div class="form-group">
+                                                {{ form.profile_photo }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="password">Password</label>
+
+                                            <div class="form-group">
+                                                {{ form.password1 }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="password">Confirm Password</label>
+
+                                            <div class="form-group">
+                                                {{ form.password2 }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button name="login" class="btn btn-block login-btn" type="submit">Register</button>
+                        </form>
+                        <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+                        <p class="login-wrapper-footer-text">Already have an account? <a href="{% url 'login_page' %}"
+                                class="text-reset">Login here</a></p>
                     </div>
                 </div>
-
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>I am Influencer</h1><br>
-                    <img src="{% static 'images/icon/brands.png' %}" alt="" height="80">
-                    <p>Looking for Brands</p>
-                    <div class="row" style="margin-top:10%;margin-bottom:5%;">
-                        <a href="{% url 'homepage' %}"
-                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
-                            to Home</a>
-                    </div>
-                    or
-                    <div class="row" style="margin-top:5%">
-                        <a href="{% url 'options' %}"
-                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
-                            Back</a>
-                    </div>
+                <div class="col-sm-5 px-0 d-none d-sm-block">
+                    <img src="{% static 'assets/images/bg.png' %}" alt="login image" class="login-img">
                 </div>
-
             </div>
         </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="{% static 'js/login.js' %}"></script>
-
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-<!--footer>
-    <p>
-        Created with <i class="fa fa-heart"></i> by
-        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-        - Read how I created this and how you can join the challenge
-        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-    </p>
-</footer-->
-
-{% endblock %}

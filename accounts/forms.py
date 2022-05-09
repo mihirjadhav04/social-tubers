@@ -98,10 +98,12 @@ class InfluencerSignUpForm(UserCreationForm):
         # required=True,
         widget=forms.Textarea(
             attrs={
-                "placeholder": "Describe yourself in short.",
+                "placeholder": "Start typing..",
                 "style": "width: 300px;margin-top:5px;",
                 "class": "form-control",
-            }
+                "cols": "300",
+                "rows": "10"
+            },
         ),
     )
     profile_photo = forms.ImageField(
