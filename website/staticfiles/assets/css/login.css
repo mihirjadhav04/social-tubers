@@ -65,10 +65,25 @@ body {
     font-weight: bold;
     color: #fff;
     margin-bottom: 14px; }
+  .login-wrapper .login-btn-reverse {
+    padding: 13px 20px;
+    background-color: #fff;
+    border-radius: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fa6742;
+    border: 1px solid #fa6742;
+
+    margin-bottom: 14px; }
     .login-wrapper .login-btn:hover {
       border: 1px solid #fa6742;
       background-color: #fff;
       color: #fa6742; }
+    .login-wrapper .login-btn-reverse:hover {
+      border: 1px solid #fa6742;
+      background-color: #fa6742;
+      color: #fff; }
+    
   .login-wrapper a.forgot-password-link {
     color: #080808;
     font-size: 14px;

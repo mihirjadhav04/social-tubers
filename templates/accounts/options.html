@@ -1,84 +1,59 @@
-{% load static%}
-{% block content %}
-
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <title>SignUp</title>
-    <!-- FOR SIGNUP
-           Bootstrap core CSS  -->
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Influencer/Brand Loginpage | theSocialTubers</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
 
 </head>
 
 <body>
-    <div class="container" id="container" style="width: 700px;height:400px">
-        <div class="form-container sign-in-container justify-content-center"
-            style="width: 350px;height:400px;padding-left:80px;">
-            <div class="row" style="margin-top:40%;">
-                <a href="{% url 'influencer_signup' %}"
-                    style="color:#000;font-size:1.3em;border:1px solid #000;padding:40px 20px;margin-right: 5px;">I'm
-                    Influencer</a>
+    <main>
+        <div class="container-fluid">
 
+            <div class="row text-center">
+                <div class="col-sm-6 login-section-wrapper">
+                    <!-- <div class="brand-wrapper">
+                        <img src="{% static 'assets/images/logo.svg' %}" alt="logo" class="logo">
+                    </div> -->
 
-            </div>
-            <div class="row" style="margin-top:50%">
-                <a href="{% url 'brand_signup' %}"
-                    style="color:#000;font-size:1.3em;border:1px solid #000;padding:40px 40px;margin-right: 5px;">I'm
-                    Brand</a>
-            </div>
-        </div>
+                    <div class="login-wrapper my-auto">
+                        {% for message in messages %}
 
-        {% comment %}
-    </div> {% endcomment %}
-    <div class="overlay-container">
-        <div class="overlay">
-            {% comment %} <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div> {% endcomment %}
+                        <div class="alert alert-danger">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            {{ message }}
+                        </div>
 
+                        {% endfor %}
+                        <h1 class="login-title text-center text-muted"> WHO ARE YOU? </h1>
 
-            <div class="overlay-panel overlay-right">
-                <h1>Let's Connect</h1><br>
-                <img src="{% static 'images/icon/service3.png' %}" alt="" width="100px" height="70px">
-                <div class="row" style="margin-top:10%">
-                    <a href="{% url 'homepage' %}"
-                        style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
-                        to Home</a>
+                        <a href="{% url 'influencer_signup' %}" style="text-decoration: none;"><button name="login"
+                                class="btn btn-block login-btn-reverse" type="submit">I'm
+                                Influencer</button></a>
+                        <p class="text-center">OR</p>
+                        <a href="{% url 'brand_signup' %}" style="text-decoration: none;"><button name="login"
+                                class="btn btn-block login-btn" type="submit">I'm Brand</button></a>
+                        <a href="{% url 'homepage' %}" class="forgot-password-link">
+                            << Go back to home</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="{% static 'assets/images/bg.png' %}" alt="login image" class="login-img">
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-
-    <!-- Scripts -->
-    {% comment %}
-    <script src="{% static 'js/login.js' %}"></script> {% endcomment %}
-
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-<!--footer>
-        <p>
-            Created with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-            - Read how I created this and how you can join the challenge
-            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-        </p>
-    </footer-->
-
-{% comment %} {% endblock %} {% endcomment %}
-
-{% endblock %}
