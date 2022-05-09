@@ -114,7 +114,7 @@ class InfluencerSignUpForm(UserCreationForm):
             }
         ),
     )
-
+    
     class Meta(UserCreationForm.Meta):
         model = User
         exclude = ("username",)
