@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout
 from django.views.generic import CreateView
 
 # Create your views here.
-from .forms import InfluencerSignUpForm, BrandSignUpForm, CommonSignInForm
+from .forms import InfluencerSignUpForm, BrandSignUpForm
 from .models import User, Influencer, Brand
 
 from django.shortcuts import get_object_or_404, render, redirect
@@ -121,11 +121,6 @@ class BrandSignUpView(CreateView):
         # login(self.request, user)
         return redirect("login_page")
 
-
-class CommonSignInView(CreateView):
-    model = User
-    form_class = CommonSignInForm
-    template_name = "accounts/common_signin.html"
 
 
 def Brands(request):

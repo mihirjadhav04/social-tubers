@@ -270,6 +270,3 @@ class BrandSignUpForm(UserCreationForm):
         brand.save()
         return brand
 
-
-class CommonSignInForm(forms.Form):
-    pass
