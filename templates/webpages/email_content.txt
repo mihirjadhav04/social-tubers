@@ -1,4 +1,4 @@
-This mail is been sent to you from your contact-us page in your website.
+This mail is been sent to you from theSocialTubers.
 Sender's Name  :    {{ name }} 
 Sender's Email :    {{ email }}
 .

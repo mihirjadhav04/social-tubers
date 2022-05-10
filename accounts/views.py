@@ -38,10 +38,10 @@ from django.contrib.auth.decorators import login_required
 # API_KEY = "AIzaSyBA73nZuumlE2Lr5kWbZynWP6jsj45vcHw"
 
 # Account : socialtubersofficial@gmail.com 
-# API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
+API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
 
 # Account : jadhavbhavin10@gmail.com 
-API_KEY = "AIzaSyCHmpIu_PXyd4V3ugZ0W0A57F7a8sgX7Y0"
+# API_KEY = "AIzaSyCHmpIu_PXyd4V3ugZ0W0A57F7a8sgX7Y0"
 
 
 def Influencers(request):
@@ -246,6 +246,32 @@ def InfluencerDetails(request, id):
     # avg_dislikes = avg_dislikes / len(stats)
     avg_data = [round(avg_views), round(avg_likes)]
 
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        template = loader.get_template('webpages/email_content.txt')
+        print("DONE")
+        context = {
+            'name' : name,
+            'email' : email,
+            'subject' : subject,
+            'message' : message,
+        }
+        content = template.render(context)
+
+        send_mail(
+            subject,
+            content,
+            email,
+            [tuber.email],
+            fail_silently=False
+        )
+        print(email)
+
+        return redirect(reverse('influencers'))
 
     data = {
         "tuber": tuber,
