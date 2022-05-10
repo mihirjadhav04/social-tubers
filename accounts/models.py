@@ -50,7 +50,7 @@ class User(AbstractUser):
     username = None
     first_name = None
     last_name = None
-    name = None
+    name = models.CharField(max_length=100)
     email = models.EmailField(_("email address"), unique=True)
     is_influencer = models.BooleanField(default=False)
     is_brand = models.BooleanField(default=False)
