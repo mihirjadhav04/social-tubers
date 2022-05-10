@@ -13,25 +13,33 @@
     <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
 </head>
 
-<body style="overflow:hidden">
+<body>
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid" style="overflow-x: hidden;">
 
             <div class="row">
                 <div class="col-sm-7 login-section-wrapper">
                     <!-- <div class="brand-wrapper">
                         <img src="{% static 'assets/images/logo.svg' %}" alt="logo" class="logo">
                     </div> -->
+                    {% if form.non_field_errors %}
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                        <li style="color:red">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
 
-                    <div class="login-wrapper" style="margin-top: -10%;font-size:10px;">
-                        {% for message in messages %}
+
+                    <div class="login-wrapper" style="margin-top: -10%;font-size:10px;padding:0px">
+                        <!-- {% for message in messages %} -->
 
                         <div class="alert alert-danger">
                             <a class="close" href="#" data-dismiss="alert">×</a>
-                            {{ message }}
+                            {{ form.errors }}
                         </div>
 
-                        {% endfor %}
+                        <!-- {% endfor %} -->
                         <h1 class="login-title">Register Here!</h1>
                         <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -69,52 +77,53 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="password">Describe yourself in short</label>
+                                    <label for="password">Password</label>
 
-                                        {{ form.short_description }}
+                                    <div class="form-group">
+                                        {{ form.password1 }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="password">Email</label>
+                                    <label for="password">Confirm Password</label>
 
-                                                {{ form.email }}
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="password">Profile Photo</label>
-
-                                            <div class="form-group">
-                                                {{ form.profile_photo }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="password">Password</label>
-
-                                            <div class="form-group">
-                                                {{ form.password1 }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="password">Confirm Password</label>
-
-                                            <div class="form-group">
-                                                {{ form.password2 }}
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        {{ form.password2 }}
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Email</label>
+
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password">Profile Photo</label>
+
+                                    <div class="form-group">
+                                        {{ form.profile_photo }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="password">Describe yourself in short</label>
+                                        {{ form.short_description }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="color:red;font-size: 1.5em;">
+                                    {# To really make sure you debug this #}
+                                    {{ form.errors }}
+                                </div>
+                            </div>
+
 
                             <button name="login" class="btn btn-block login-btn" type="submit">Register</button>
                         </form>
@@ -123,8 +132,9 @@
                                 class="text-reset">Login here</a></p>
                     </div>
                 </div>
-                <div class="col-sm-5 px-0 d-none d-sm-block">
-                    <img src="{% static 'assets/images/bg.png' %}" alt="login image" class="login-img">
+                <div class="col-sm-5">
+                    <img src="{% static 'assets/images/bg1.png' %}" alt="login image" class="login-img"
+                        style="height: auto;width:800px;padding-right: 2em;margin-left: -8em;margin-top: 8em;">
                 </div>
             </div>
         </div>

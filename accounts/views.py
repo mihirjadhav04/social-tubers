@@ -101,7 +101,11 @@ class InfluencerSignUpView(CreateView):
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
-        user = form.save()
+        try:
+            user = form.save()
+        except (err):
+            print(err.message)
+            
         # login(self.request, user)
         return redirect("login_page")
 

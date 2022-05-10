@@ -28,7 +28,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Choose your password.",
-                "style": "width: 300px;",
+                "style": "width: 200px;",
                 "class": "form-control",
             }
         ),
@@ -99,10 +99,10 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.Textarea(
             attrs={
                 "placeholder": "Start typing..",
-                "style": "width: 300px;margin-top:5px;",
+                "style": "width: auto;margin-top:5px;border:1px solid grey",
                 "class": "form-control",
-                "cols": "300",
-                "rows": "10"
+                "cols": "68",
+                "rows": "4"
             },
         ),
     )
@@ -120,20 +120,22 @@ class InfluencerSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         exclude = ("username",)
-
+    
     def save(self):
+        print("ENTER")
         user = super().save(commit=False)
         user.is_influencer = True
         user.email = self.cleaned_data.get("email")
         # user.first_name = self.cleaned_data.get("first_name")
         # user.last_name = self.cleaned_data.get("last_name")
         user.save()
+        
         influencer = Influencer.objects.create(user=user)
         influencer.channel_name = self.cleaned_data.get("channel_name")
         influencer.youtube_id = self.cleaned_data.get("youtube_id")
         influencer.instagram_id = self.cleaned_data.get("instagram_id")
         influencer.category_type = self.cleaned_data.get("category_type")
-        print(influencer.category_type)
+        # print(influencer.category_type)
         influencer.short_description = self.cleaned_data.get("short_description")
         influencer.profile_photo = self.cleaned_data.get("profile_photo")
         influencer.save()
