@@ -47,7 +47,7 @@ API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
 def Influencers(request):
     all_tubers = Influencer.objects.order_by("-created_date")
 
-    paginator = Paginator(all_tubers, 3)
+    paginator = Paginator(all_tubers, 6)
     page = request.GET.get("page")
     try:
         tubers = paginator.page(page)
@@ -181,7 +181,7 @@ def InfluencerDetails(request, id):
         if key == "viewCount":
             viewCount = value
             
-    base_price = round(int(viewCount) / int(videoCount)) * 2
+    base_price = round(int(viewCount) / int(videoCount)) 
     print(base_price)
     
     subCount = convert_count(subCount)
