@@ -15,7 +15,9 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  padding: 68px 100px;
+  padding: 58px 100px;
+  padding-top: 68px;
+  padding-bottom: 0px;
   background-color: #fff; }
   @media (max-width: 991px) {
     .login-section-wrapper {
@@ -29,7 +31,7 @@ body {
 
 .login-wrapper {
   width: 700px;
-  max-width: 100%;
+  max-width: 80%;
   padding-top: 24px;
   padding-bottom: 24px; }
   @media (max-width: 575px) {
@@ -41,11 +43,11 @@ body {
     color: #b0adad; }
   .login-wrapper .form-control {
     border: none;
-    border-bottom: 1px solid #e7e7e7;
+    border: 1px solid #e7e7e7;
     border-radius: 0;
     padding: 9px 5px;
     min-height: 40px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal; }
     .login-wrapper .form-control::-webkit-input-placeholder {
       color: #b0adad; }

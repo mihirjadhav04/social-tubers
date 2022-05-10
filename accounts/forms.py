@@ -28,7 +28,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Choose your password.",
-                "style": "width: 200px;",
+                # "style": "width: 200px;",
                 "class": "form-control",
             }
         ),
@@ -38,7 +38,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Confirm your password.",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -49,7 +49,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={
                 "placeholder": "Enter your email",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -59,7 +59,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Enter your youtube channel id.",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -69,7 +69,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Enter you youtube channel name.",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -79,7 +79,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Enter your instagram id.",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -89,7 +89,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.Select(
             attrs={
                 "placeholder": "Enter your category",
-                "style": "width: 300px;padding:8px 10px;",
+                # "style": "width: 300px;padding:8px 10px;",
                 "class": "form-control", 
             }
         ),
@@ -99,10 +99,10 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.Textarea(
             attrs={
                 "placeholder": "Start typing..",
-                "style": "width: auto;margin-top:5px;border:1px solid grey",
+                "style": "width: auto;margin-top:5px;",
                 "class": "form-control",
-                "cols": "68",
-                "rows": "4"
+                "cols": "72.5",
+                "rows": "3"
             },
         ),
     )
@@ -111,7 +111,7 @@ class InfluencerSignUpForm(UserCreationForm):
         widget=forms.FileInput(
             attrs={
                 "placeholder": "Select your profile photo.",
-                "style": "width: 300px;",
+                # "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
