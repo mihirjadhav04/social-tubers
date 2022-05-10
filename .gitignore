@@ -115,7 +115,7 @@ celerybeat.pid
 # .env
 # .venv
 # env/
-venv/
+# venv/
 # ENV/
 # env.bak/
 # venv.bak/
@@ -253,13 +253,13 @@ celerybeat-schedule.*
 *.sage.py 
 
 # Environments 
-.env 
+# .env 
 # .venv 
-env/ 
+# env/ 
 # venv/ 
-ENV/ 
-env.bak/ 
-venv.bak/ 
+# ENV/ 
+# env.bak/ 
+# venv.bak/ 
 
 # mkdocs documentation 
 /site 
