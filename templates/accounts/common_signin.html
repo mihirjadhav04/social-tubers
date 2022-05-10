@@ -32,7 +32,8 @@
                         </div>
 
                         {% endfor %}
-                        <h1 class="login-title">Log in</h1>
+                        <h1 class="login-title text-center">LOGIN</h1>
+                        <hr width="50">
                         <form method="POST" action="{% url 'login_page' %}">
                             {% csrf_token %}
                             <div class="form-group">
@@ -48,8 +49,10 @@
                             <button name="login" class="btn btn-block login-btn" type="submit">Login</button>
                         </form>
                         <a href="#!" class="forgot-password-link">Forgot password?</a>
-                        <p class="login-wrapper-footer-text">Don't have an account? <a href="{% url 'options' %}"
-                                class="text-reset">Register here</a></p>
+                        <p class="login-wrapper-footer-text"> <a href="{% url 'homepage' %}"
+                                class="forgot-password-link" style="padding-right: 3em;">
+                                << Go back to home</a>Don't have an account? <a href="{% url 'options' %}"
+                                        class="text-reset">Register here</a> </p>
                     </div>
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">

@@ -129,8 +129,12 @@
                             <button name="login" class="btn btn-block login-btn" type="submit">Register</button>
                         </form>
                         <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
-                        <p class="login-wrapper-footer-text">Already have an account? <a href="{% url 'login_page' %}"
-                                class="text-reset">Login here</a></p>
+                        <p class="login-wrapper-footer-text"> <a href="{% url 'homepage' %}"
+                                class="forgot-password-link" style="padding-right: 8em;padding-left: 2em;">
+                                << Go back to home</a>
+                                    Already have an account? <a href="{% url 'login_page' %}" class="text-reset">Login
+                                        here</a>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-5">
