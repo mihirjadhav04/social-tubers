@@ -51,6 +51,7 @@ class User(AbstractUser):
     first_name = None
     last_name = None
     name = None
+    # full_name = models.CharField(max_length=100)
     email = models.EmailField(_("email address"), unique=True)
     is_influencer = models.BooleanField(default=False)
     is_brand = models.BooleanField(default=False)
@@ -59,25 +60,25 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-
+CATAGORIES = (
+    ("Autos & Vehicles","Autos & Vehicles"),
+    ("Comedy","Comedy"),
+    ("Education","Education"),
+    ("Entertainment","Entertainment"),
+    ("Film & Animation","Film & Animation"),
+    ("Gaming","Gaming"),
+    ("Howto & Style","Howto & Style"),
+    ("Music","Music"),
+    ("News & Politics","News & Politics"),
+    ("Nonprofits & Activisms","Nonprofits & Activisms"),
+    ("People & Blogs","People & Blogs"),
+    ("Pets & Animals","Pets & Animals"),
+    ("Science & Technology","Science & Technology"),
+    ("Travel & Events","Travel & Events"),
+    ("Sports","Sports"),
+)
 class Influencer(models.Model):
-    CATAGORIES = (
-        ("Autos & Vehicles","Autos & Vehicles"),
-        ("Comedy","Comedy"),
-        ("Education","Education"),
-        ("Entertainment","Entertainment"),
-        ("Film & Animation","Film & Animation"),
-        ("Gaming","Gaming"),
-        ("Howto & Style","Howto & Style"),
-        ("Music","Music"),
-        ("News & Politics","News & Politics"),
-        ("Nonprofits & Activisms","Nonprofits & Activisms"),
-        ("People & Blogs","People & Blogs"),
-        ("Pets & Animals","Pets & Animals"),
-        ("Science & Technology","Science & Technology"),
-        ("Travel & Events","Travel & Events"),
-        ("Sports","Sports"),
-    )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     channel_name = models.CharField(max_length=100)
     youtube_id = models.CharField(max_length=100)
@@ -91,8 +92,9 @@ class Influencer(models.Model):
 
 class Brand(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    category_type = models.CharField(max_length=100)
+    category_type = models.CharField(max_length=100, choices=CATAGORIES)
     brand_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100)
     # established_date = models.DateField()
     instagram_id = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)

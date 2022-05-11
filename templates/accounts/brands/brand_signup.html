@@ -1,114 +1,155 @@
-{% load static%}
-
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <title>Brand Registration Page</title>
-
-    <!-- FOR login
-       Bootstrap core CSS  -->
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Influencer/Brand Loginpage | theSocialTubers</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
 </head>
 
 <body>
-    <div class="container-fluid" id="container">
-        <div class="form-container sign-in-container p-5">
-            <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
-                {% csrf_token %}
-                <h1>Create Account </h1>
+    <main>
+        <div class="container-fluid" style="overflow-x: hidden;">
 
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.first_name}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.last_name}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.brand_name}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.established_date}}
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.email}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.instagram_id}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.category_type}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.short_description}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.profile_photo}}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form.password1}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form.password2}}
-                    </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-success" type="submit">Register! </button>
-                    </div>
-                </div>
+            <div class="row">
+                <div class="col-sm-7 login-section-wrapper">
+                    <!-- <div class="brand-wrapper">
+                        <img src="{% static 'assets/images/logo.svg' %}" alt="logo" class="logo">
+                    </div> -->
+                    {% if form.non_field_errors %}
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                        <li style="color:red">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
 
 
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>I am Brand</h1><br>
-                    <img src="{% static 'images/pricing/pricing_icon5.png' %}" alt="" height="80">
-                    <p>Looking for Influencer</p>
-                    <div class="row" style="margin-top:10%;margin-bottom:5%">
-                        <a href="{% url 'homepage' %}"
-                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
-                            to Home</a>
+                    <div class="login-wrapper" style="margin-top: -10%;font-size:10px;padding:0px">
+                        <!-- {% for message in messages %} -->
+
+                        <div class="alert alert-danger">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            {{ form.errors }}
+                        </div>
+
+                        <!-- {% endfor %} -->
+                        <h1 class="login-title text-center pt-3" style="padding-bottom:-10px">Brand Registration!</h1>
+                        <hr width="100">
+                        <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Select your category</label>
+
+                                        {{ form.category_type }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Full Name</label>
+
+                                        {{ form.full_name }}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">What's your brand name?</label>
+
+                                        {{ form.brand_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Instagram ID</label>
+
+                                        {{ form.instagram_id }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="password">Password</label>
+
+                                    <div class="form-group">
+                                        {{ form.password1 }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password">Confirm Password</label>
+
+                                    <div class="form-group">
+                                        {{ form.password2 }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Email</label>
+
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password">Profile Photo</label>
+
+                                    <div class="form-group">
+                                        {{ form.profile_photo }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="password">Describe yourself in short</label>
+                                        {{ form.short_description }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="color:red;font-size: 1.5em;">
+                                    {# To really make sure you debug this #}
+                                    {{ form.errors }}
+                                </div>
+                            </div>
+
+
+                            <button name="login" class="btn btn-block login-btn" type="submit">Register</button>
+                        </form>
+                        <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+                        <p class="login-wrapper-footer-text"> <a href="{% url 'homepage' %}"
+                                class="forgot-password-link" style="padding-right: 8em;padding-left: 2em;">
+                                << Go back to home</a>
+                                    Already have an account? <a href="{% url 'login_page' %}" class="text-reset">Login
+                                        here</a>
+                        </p>
                     </div>
-                    or
-                    <div class="row" style="margin-top:5%">
-                        <a href="{% url 'options' %}"
-                            style="color:#fff;font-size:1em;border:1px solid #fff;padding:10px 10px;margin-right: 5px;">Go
-                            Back</a>
-                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <img src="{% static 'assets/images/bg.svg' %}" alt="login image" class="login-img"
+                        style="height: auto;width:700px;padding-top: 5em;padding-right: 2em;">
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="{% static 'js/login.js' %}"></script>
-
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -30,9 +30,9 @@
                     <h2>
                         {{brand.brand_name}}
                         <a href="#"><i class="fa fa-youtube-play"
-                                style="font-size:37px;color:red; radius:40px"></i></i></a>
+                                style="font-size:37px;color: red; radius:40px"></i></i></a>
                         <a href="#"><i class="fa fa-instagram"
-                                style="font-size:35px;color:red; radius:40px"></i></i></a>
+                                style="font-size:35px;color: #8a3ab9; radius:40px"></i></i></a>
                         <span class="animate-border tw-mt-20 tw-mb-35"></span>
                     </h2>
                 </div>
@@ -55,6 +55,69 @@
     </div>
 </section>
 
+<section id="tw-contact-us" class="tw-contact-us bg-offwhite">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-heading text-center">
+                    <h2>
+                        <small>leave a message</small>
+                        Connect with <span>{{ brand.brand_name }}</span>
+                    </h2>
+                    <span class="animate-border border-ash ml-auto mr-auto tw-mt-20 tw-mb-40"></span>
+                </div>
+            </div>
+            <!-- Col End -->
+        </div>
+        <!-- Row End -->
+        <div class="contact-us-form">
+            <form id="contact-form" class="contact-form" action="{% url 'contactpage' %}" method="post" role="form">
+                {% csrf_token %}
+                <div class="error-container"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <input class="form-control form-name" name="name" id="name" placeholder="Name" type="text"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Col end -->
+                    <!-- <div class="col-lg-6">
+                   <div class="form-group">
+                      <input class="form-control form-phone" name="phone" id="phone" placeholder="Phone" type="phone">
+                   </div>
+                </div> -->
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <input class="form-control form-email" name="email" id="email" placeholder="Email"
+                                type="email" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <input class="form-control form-subject" placeholder="Subject" name="subject" id="subject"
+                                type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <textarea class="form-control form-message required-field" id="message" name="message"
+                                placeholder="Comments" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <!-- Col 12 end -->
+                </div>
+                <!-- Form row end -->
+                <div class="text-center">
+                    <button class="btn btn-primary tw-mt-30" type="submit">Send</button>
+                </div>
+            </form>
+            <!-- Form end -->
+        </div>
+        <!-- Contact us form end -->
+    </div>
+    <!-- Container End -->
+</section>
 <!-- Scripts -->
 <script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js' %}"></script>
 <script src="{% static 'https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js' %}"></script>

@@ -148,7 +148,6 @@ class BrandSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Choose your password.",
-                "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -158,37 +157,34 @@ class BrandSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Confirm your password.",
-                "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
     )
-    first_name = forms.CharField(
+    full_name = forms.CharField(
         max_length=100,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Enter your first name.",
-                "style": "width: 300px;",
+                "placeholder": "Enter your full name here...",
                 "class": "form-control",
             }
         ),
     )
-    last_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Enter your last name.",
-                "style": "width: 300px;",
-                "class": "form-control",
-            }
-        ),
-    )
+    # last_name = forms.CharField(
+    #     max_length=100,
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder": "Enter your last name.",
+    #             "style": "width: 300px;",
+    #             "class": "form-control",
+    #         }
+    #     ),
+    # )
     email = forms.EmailField(
         required=True,
         widget=forms.EmailInput(
             attrs={
                 "placeholder": "Enter your email",
-                "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
@@ -198,8 +194,7 @@ class BrandSignUpForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Enter you youtube brand name.",
-                "style": "width: 300px;",
+                "placeholder": "Enter your brand name here..",
                 "class": "form-control",
             }
         ),
@@ -209,29 +204,30 @@ class BrandSignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Enter your instagram id.",
-                "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
     )
-    category_type = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
+    category_type = forms.ChoiceField(
+        choices = CATAGORIES,
+        widget=forms.Select(
             attrs={
                 "placeholder": "Enter your category",
-                "style": "width: 300px;",
-                "class": "form-control",
+                # "style": "width: 300px;padding:8px 10px;",
+                "class": "form-control", 
             }
         ),
     )
     short_description = forms.CharField(
-        required=True,
-        widget=forms.TextInput(
+        # required=True,
+        widget=forms.Textarea(
             attrs={
-                "placeholder": "Describe yourself in short.",
-                "style": "width: 300px;",
+                "placeholder": "Start typing..",
+                "style": "width: auto;margin-top:5px;",
                 "class": "form-control",
-            }
+                "cols": "72.5",
+                "rows": "3"
+            },
         ),
     )
     profile_photo = forms.ImageField(
@@ -239,20 +235,19 @@ class BrandSignUpForm(UserCreationForm):
         widget=forms.FileInput(
             attrs={
                 "placeholder": "Select your profile photo.",
-                "style": "width: 300px;",
                 "class": "form-control",
             }
         ),
     )
-    established_date = forms.DateField(
-        widget=forms.DateInput(
-            attrs={
-                "placeholder": "When your brand started? - dd/mm/yyyy",
-                "style": "width: 300px;",
-                "class": "form-control",
-            }
-        ),
-    )
+    # established_date = forms.DateField(
+    #     widget=forms.DateInput(
+    #         attrs={
+    #             "placeholder": "When your brand started? - dd/mm/yyyy",
+    #             "style": "width: 300px;",
+    #             "class": "form-control",
+    #         }
+    #     ),
+    # )
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -262,11 +257,11 @@ class BrandSignUpForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_influencer = True
         user.email = self.cleaned_data.get("email")
-        user.first_name = self.cleaned_data.get("first_name")
-        user.last_name = self.cleaned_data.get("last_name")
+        # user.last_name = self.cleaned_data.get("last_name")
         user.save()
         brand = Brand.objects.create(user=user)
         brand.brand_name = self.cleaned_data.get("instagram_id")
+        brand.full_name = self.cleaned_data.get("full_name")
         brand.instagram_id = self.cleaned_data.get("instagram_id")
         brand.category_type = self.cleaned_data.get("category_type")
         brand.short_description = self.cleaned_data.get("short_description")
