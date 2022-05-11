@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
         # Influencer.objects.all().delete()
 
-        with open('C:/Users/Lenovo/OneDrive/Desktop/Ronak/LYP-main/apnawala.csv', encoding='cp437') as file:
+        with open('./apnawala.csv', encoding='cp437') as file:
             reader = csv.reader(file)
             next(reader)  # Advance past the header
             for row in reader:
