@@ -19,12 +19,26 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'homepage' %}">Home</a>
                         </li>
+                        {% if user.is_authenticated and user.is_superuser %}
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'influencers' %}">Influencers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'brands' %}">Brands</a>
                         </li>
+                        {% endif %}
+                        {% if user.is_authenticated and user.is_influencer %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'brands' %}">Brands</a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated and user.is_brand %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'influencers' %}">Influencers</a>
+                        </li>
+                        {% endif %}
+
                         <li class="nav-item dropdown ">
                             <a class="nav-link" href="{% url 'aboutpage' %}">About</a>
                         </li>

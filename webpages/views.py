@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect, reverse
-from accounts.models import Influencer, User
+from accounts.models import Influencer, User, Brand
 import pickle
 from django.contrib.staticfiles.storage import staticfiles_storage
 import pandas as pd
@@ -16,10 +16,14 @@ def homepage(request):
     featured_youtubers = Influencer.objects.order_by("-created_date").filter(
         is_featured=True
     )
+    featured_brands = Brand.objects.order_by("-created_date").filter(
+        is_featured=True
+    )
     # tuber = get_object_or_404(Youtuber, pk=id)
     # recent_tubers = Youtuber.objects.order_by("-created_date")
     data = {
         "featured_youtubers": featured_youtubers,
+        "featured_brands": featured_brands,
         # "recent_tubers": recent_tubers,
     }
     return render(request, "webpages/homepage.html", data)

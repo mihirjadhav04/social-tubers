@@ -139,7 +139,7 @@
       <div class="row text-center">
          <div class="col section-heading wow fadeInDown" data-wow-duration="1s">
             <h2>
-               <small>Featuring</small>Our Top 3 <span>Influencers</span>
+               <small></small>Featured <span>Influencers</span>
             </h2>
             <span class="animate-border ml-auto mr-auto tw-mt-20"></span>
          </div>
@@ -284,6 +284,66 @@
    <!-- End Container -->
 </section>
 <!-- Intro section End -->
+
+<section id="tw-features" class="tw-features-area">
+   <div class="container">
+      <div class="row tw-mb-65">
+         <div class="col-md-4 wow fadeInLeft" data-wow-duration="1s">
+            <h2 class="column-title text-md-right text-sm-center">Connecting<br /> Influencers & Brands</h2>
+         </div>
+         <!-- Col End -->
+         <div class="col-md-7 ml-md-auto wow fadeInRight" data-wow-duration="1s">
+            <p class="features-text">At SocialTubers, we believe that socially
+               distributed visual content is the future of advertising.
+               This platform allows brands to analyse and measure their
+               marketing effort and engage influencer to create content.
+            </p>
+         </div>
+         <!-- Col End -->
+      </div>
+      <div class="row text-center">
+         <div class="col section-heading wow fadeInDown" data-wow-duration="1s">
+            <h2>
+               <small></small>Featured <span>Brands</span>
+            </h2>
+            <span class="animate-border ml-auto mr-auto tw-mt-20"></span>
+         </div>
+         <!-- End Col -->
+      </div>
+      <!-- End Row 1 -->
+      <div class="row">
+         {% for tuber in featured_brands %}
+
+         <div class="col-md-4 text-center">
+            <div class="tw-case-study-box" style="width: 300px;height: auto;">
+               <div class="case-img study-bg-1">
+                  <img src="{{ tuber.profile_photo.url }}" alt="" class="img-fluid">
+               </div>
+               <!-- End case img -->
+               <div class="casestudy-content">
+                  <a href="#">
+                     <h4>{{ tuber.brand_name }}</h4>
+                  </a>
+                  <p>{{ tuber.category_type }}</p>
+
+                  <a href="{% url 'brand_details' tuber.user_id %}">
+                     <p style="font-size:18px;color:black">View Details
+                        <!-- influencer/services-->
+                        <i class="fa fa-angle-right"></i>
+                     </p>
+                  </a>
+               </div>
+               <!-- End case study content -->
+            </div>
+            <!-- End case study box -->
+         </div>
+         {% endfor %}
+         <!-- End col -->
+      </div>
+      <!-- End Row 2 -->
+   </div>
+   <!-- End Container -->
+</section>
 
 <section id="work-process" class="work-process">
    <div class="work-bg-pattern d-none d-lg-inline-block">
