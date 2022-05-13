@@ -5,6 +5,9 @@ from .models import User, Influencer, Brand
 
 from django.utils.html import format_html
 
+class UserAdmin(admin.ModelAdmin):
+    search_fields = ("email",)
+    
 
 class Influencer_AdminPanelView(admin.ModelAdmin):
     # method to modify the fields or it's view in the Admin Panel
@@ -58,5 +61,5 @@ class Brand_AdminPanelView(admin.ModelAdmin):
 
 admin.site.register(Influencer, Influencer_AdminPanelView)
 # admin.site.register(Influencer)
-admin.site.register(User)
+admin.site.register(User,UserAdmin)
 admin.site.register(Brand, Brand_AdminPanelView)

@@ -35,10 +35,10 @@ from django.contrib.auth.decorators import login_required
 # API_KEY = "AIzaSyA2iCqcMBI4RDTbyVLh0LDe5mOE2lYKtbk"
 
 # Account : mihir.jadhav@somaiya.edu
-# API_KEY = "AIzaSyBA73nZuumlE2Lr5kWbZynWP6jsj45vcHw"
+API_KEY = "AIzaSyBA73nZuumlE2Lr5kWbZynWP6jsj45vcHw"
 
 # Account : socialtubersofficial@gmail.com 
-API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
+# API_KEY = "AIzaSyDJd7beSbR0LLxnbnslfpOlOYgAN3QSLQM"
 
 # Account : jadhavbhavin10@gmail.com 
 # API_KEY = "AIzaSyCHmpIu_PXyd4V3ugZ0W0A57F7a8sgX7Y0"
@@ -131,7 +131,7 @@ def Brands(request):
     # print("Function called!")
     all_brands = Brand.objects.order_by("-created_date")
     # print(all_brands)
-    paginator = Paginator(all_brands, 3)
+    paginator = Paginator(all_brands, 6)
     page = request.GET.get("page")
     try:
         brands = paginator.page(page)
@@ -143,13 +143,44 @@ def Brands(request):
     data = {
         "all_brands": brands,
     }
-    print(all_brands)
+   
+    
+    
+    # print(all_brands)
     return render(request, "accounts/brands/brands.html", data)
 
 
 def BrandDetails(request, id):
     brand = get_object_or_404(Brand, pk=id)
     # print(brand)
+    email_id = brand.user.email
+    print(email_id)
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        template = loader.get_template('webpages/email_content.txt')
+        print("DONE")
+        context = {
+            'name' : name,
+            'email' : email,
+            'subject' : subject,
+            'message' : message,
+        }
+        content = template.render(context)
+
+        send_mail(
+            subject,
+            content,
+            email,
+            email_id,
+            fail_silently=False
+        )
+        # print(email)
+
+        return redirect(reverse('brands'))
     data = {"brand": brand}
     return render(request, "accounts/brands/brand_details.html", data)
 
@@ -181,7 +212,7 @@ def InfluencerDetails(request, id):
         if key == "viewCount":
             viewCount = value
             
-    base_price = round(int(viewCount) / int(videoCount)) 
+    base_price = convert_count(round((int(viewCount) / int(videoCount))/2)) 
     print(base_price)
     
     subCount = convert_count(subCount)
