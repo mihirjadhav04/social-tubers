@@ -38,9 +38,6 @@ To run SocialTubers locally, follow these steps:
 
 Contributions to SocialTubers are welcomed and encouraged! Whether it's bug fixes, feature enhancements, or documentation improvements, your contributions can help make SocialTubers even better. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
